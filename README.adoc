@@ -1,4 +1,6 @@
 = Address Book (Level 4)
+
+image:https://api.codacy.com/project/badge/Grade/86cc25c2fbea4c2f805de375807c25b4[link="https://app.codacy.com/app/Kratious/main?utm_source=github.com&utm_medium=referral&utm_content=CS2103-AY1819S1-W16-2/main&utm_campaign=Badge_Grade_Settings"]
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
 https://travis-ci.org/se-edu/addressbook-level4[image:https://travis-ci.org/se-edu/addressbook-level4.svg?branch=master[Build Status]]
