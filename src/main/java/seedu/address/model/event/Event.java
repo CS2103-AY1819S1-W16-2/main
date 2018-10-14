@@ -66,14 +66,14 @@ public class Event {
     }
 
     /**
-     * Used when loading data from XML. Every field must be present and not null.
+     * Used when loading data from XML or editing. Every field must be present and not null.
      */
     public Event(EventId eventId, Name name, Location location, Date startDate, Date endDate,
                  Time startTime, Time endTime, Description description, Set<Tag> tags) {
         requireAllNonNull(eventId, name, location, startDate, endDate, description, tags);
-
+        System.out.println("Event Max Id " + maxId);
         if (isNewEventIdGreaterThanMaxId(eventId.id)) {
-            replaceMaxIdWithIncrementedEventId(eventId.id);
+            replaceMaxIdWithEventId(eventId.id);
         }
         this.eventId = eventId;
 
@@ -111,8 +111,8 @@ public class Event {
      * Replaces max id with new event id.
      * @param newEventId event id from loaded xml event.
      */
-    private void replaceMaxIdWithIncrementedEventId(int newEventId) {
-        maxId = newEventId + 1;
+    private void replaceMaxIdWithEventId(int newEventId) {
+        maxId = newEventId;
     }
 
 
@@ -224,8 +224,8 @@ public class Event {
                 .append(" Location: ").append(getLocation())
                 .append(" Start Date: ").append(getStartDate())
                 .append(" End Date: ").append(getEndDate())
-                .append(" Start Time.java: ").append(getStartTime())
-                .append(" End Time.java: ").append(getEndTime())
+                .append(" Start Time: ").append(getStartTime())
+                .append(" End Time: ").append(getEndTime())
                 .append(" Description: ").append(getDescription())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
