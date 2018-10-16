@@ -21,7 +21,7 @@
 <li><a href="#redoing-the-previously-undone-command-code-redo-code">3.1.4. Redoing the previously undone command : <code>redo</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">3.1.5. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.1.6. Exiting the program : <code>exit</code></a></li>
-<li><a href="#switching-context-code-switch-code">3.1.7. Switching context : <code>switch</code></a></li>
+<li><a href="#command-switch">3.1.7. Switching context : <code>switch</code></a></li>
 </ul>
 </li>
 <li><a href="#volunteer-management">3.2. Volunteer Management</a>
@@ -259,7 +259,7 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="switching-context-code-switch-code"><a class="link" href="#switching-context-code-switch-code">3.1.7. Switching context : <code>switch</code></a></h4>
+<h4 id="command-switch"><a class="link" href="#command-switch">3.1.7. Switching context : <code>switch</code></a></h4>
 <div class="paragraph">
 <p>Switches context to volunteers or events<br>
 Format: <code>switch</code></p>
@@ -308,10 +308,10 @@ Format: <code>add n/NAME b/BIRTHDAY g/GENDER a/ADDRESS e/EMAIL p/PHONE_NUMBER [t
 <div class="ulist">
 <ul>
 <li>
-<p>Birthday is in the 'DD-MM-YYYY format'</p>
+<p>Birthday is in the 'DD-MM-YYYY format'.</p>
 </li>
 <li>
-<p>A volunteer can have any number of tags (including 0)</p>
+<p>A volunteer can have any number of tags (including 0).</p>
 </li>
 </ul>
 </div>
@@ -400,21 +400,29 @@ Deletes the details of the volunteer specified at index 1</p>
 </div>
 <div class="sect2">
 <h3 id="event-management"><a class="link" href="#event-management">3.3. Event Management</a></h3>
+<div class="paragraph">
+<p>The following commands can only be accessed after switching to the 'event' context. (see <a href="#command-switch">Section 3.1.7, &#8220;Switching context : <code>switch</code>&#8221;</a>)</p>
+</div>
 <div class="sect3">
 <h4 id="add-new-event-code-add-code"><a class="link" href="#add-new-event-code-add-code">3.3.1. Add new event: <code>add</code></a></h4>
 <div class="paragraph">
-<p>Adds an event to the system when in the event context<br>
-Format: <code>add n/NAME l/LOCATION sd/START_DATE ed/END_DATE d/DESCRIPTION [t/TAG]&#8230;&#8203;</code></p>
+<p>Adds an event to the system when in the 'event' context.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add n/NAME l/LOCATION sd/START_DATE ed/END_DATE st/START_TIME et/END_TIME d/DESCRIPTION [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Start date and end dates are in the 'DD-MM-YYYY format'</p>
+<p>Start date and end date must be in 'DD-MM-YYYY format'.</p>
 </li>
 <li>
-<p>An event can have any number of tags (including 0)</p>
+<p>Start time and end time must be in 'HH:MM format'.</p>
+</li>
+<li>
+<p>An event can have any number of tags (including 0).</p>
 </li>
 </ul>
 </div>
@@ -426,26 +434,144 @@ Format: <code>add n/NAME l/LOCATION sd/START_DATE ed/END_DATE d/DESCRIPTION [t/T
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/Flag Day l/Yishun MRT S sd/31-10-2018 ed/31-10-2018 d/For the children&#8217;s home</code></p>
+<p><code>add n/Flag Day l/Yishun MRT sd/31-10-2018 ed/31-10-2018 st/09:00 et/15:00 d/For the children&#8217;s home</code><br></p>
+<div class="paragraph">
+<p>Adds an event with the following properties:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flag day</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yishun MRT</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">31-10-2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">31-10-2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">09:00</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15:00</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For the children&#8217;s home</p></td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
-<p><code>add n/Fundraising l/Tampines S sd/31-09-2018 ed/31-09-2018 d/Raising funds  t/fundraiser t/charity</code></p>
+<p><code>add n/Fundraising l/Tampines Street 31 sd/15-11-2018 ed/17-11-2018 st/13:00 et/18:00 d/Raising funds t/fundraiser
+t/charity</code></p>
+<div class="paragraph">
+<p>Adds an event with the following properties:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fundraising</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tampines Street 31</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15-11-2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17-11-2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13:00</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18:00</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Raising funds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tags</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fundraiser, charity</p></td>
+</tr>
+</tbody>
+</table>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The figures below show the before and after results of an add command.</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/command_add_event_before.png" alt="Before add" width="800">
+</div>
+<div class="title">Figure 1. Before entering the add command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command_add_event_after.png" alt="After add" width="800">
+</div>
+<div class="title">Figure 2. A new event is added after entering the add command</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="listing-all-events-code-list-code"><a class="link" href="#listing-all-events-code-list-code">3.3.2. Listing all events : <code>list</code></a></h4>
 <div class="paragraph">
-<p>Lists all events in the system when in the events context.<br>
-Format: <code>list</code></p>
+<p>Lists all events in the system when in the 'event' context.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="editing-event-details-code-edit-code"><a class="link" href="#editing-event-details-code-edit-code">3.3.3. Editing event details : <code>edit</code></a></h4>
 <div class="paragraph">
-<p>Edit details of an existing event in the system when in the event context.<br>
-Format: <code>edit INDEX [n/NAME] [l/LOCATION] [sd/START_DATE] [ed/END_DATE] [d/DESCRIPTION] [t/TAG]&#8230;&#8203;</code></p>
+<p>Edit details of an existing event in the system when in the 'event' context.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit INDEX [n/NAME] [l/LOCATION] [sd/START_DATE] [ed/END_DATE] [st/START_TIME] [et/END_TIME] [d/DESCRIPTION] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -477,16 +603,37 @@ Format: <code>edit INDEX [n/NAME] [l/LOCATION] [sd/START_DATE] [ed/END_DATE] [d/
 <ul>
 <li>
 <p><code>edit 1 n/Charity Fun Run t/</code><br>
-Edits the name of event at index 1 and removes all tags</p>
+Edits the name of event at index 1 and removes all tags.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The figures below show the before and after results of an edit command.</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/command_edit_event_before.png" alt="Before add" width="800">
+</div>
+<div class="title">Figure 3. Before entering the edit command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command_edit_event_after.png" alt="After add" width="800">
+</div>
+<div class="title">Figure 4. The targeted event is updated to reflect the new values after entering the edit command</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="deleting-event-details-code-delete-code"><a class="link" href="#deleting-event-details-code-delete-code">3.3.4. Deleting event details : <code>delete</code></a></h4>
 <div class="paragraph">
-<p>Deletes details of an existing event in the system when in the event context.<br>
-Format: <code>delete INDEX</code></p>
+<p>Deletes details of an existing event in the system when in the 'event' context.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -494,10 +641,29 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-Deletes the details of the event specified at index 1</p>
+<p><code>delete 2</code><br>
+Deletes the details of the event specified at index 2.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The figures below show the before and after results of a delete command.</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/command_delete_event_before.png" alt="Before add" width="800">
+</div>
+<div class="title">Figure 5. The event at index 2 is targeted before entering the delete command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command_delete_event_after.png" alt="After add" width="800">
+</div>
+<div class="title">Figure 6. The targeted event is deleted after entering the delete command</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -723,7 +889,8 @@ e.g. <code>delete 3</code></p>
 <ul>
 <li>
 <p><strong>Add</strong> <code>add n/NAME l/LOCATION sd/START_DATE ed/END_DATE d/DESCRIPTION [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/Fundraising l/Tampines S sd/31-09-2018 ed/31-09-2018 d/Raising funds  t/fundraiser t/charity</code></p>
+e.g. <code>add n/Fundraising l/Tampines S sd/31-09-2018 ed/31-09-2018 st/13:00 et/18:00 d/Raising funds t/fundraiser
+t/charity</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
@@ -763,4 +930,4 @@ e.g. <code>delete 1</code></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 14:33:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 15:03:43 UTC</div></div></div></body></html>
