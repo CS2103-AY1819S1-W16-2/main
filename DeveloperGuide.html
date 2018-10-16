@@ -698,9 +698,98 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>SocialCare</c
 <p>This section describes the details on how the general features are implemented.</p>
 </div>
 <div class="sect3">
-<h4 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.1.1. Undo/Redo feature</a></h4>
+<h4 id="Implementation-Switch"><a class="link" href="#Implementation-Switch">4.1.1. Switch command</a></h4>
+<div class="paragraph">
+<p>The <code>switch</code> command is used to switch the context between 'volunteer' and 'event'.</p>
+</div>
 <div class="sect4">
 <h5 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h5>
+<div class="paragraph">
+<p>This <code>switch</code> command requires the <code>SwitchCommandParser</code> class to parse user input and help determine the context to switch to.<br></p>
+</div>
+<div class="paragraph">
+<p><code>SwitchCommandParser</code> implements the <code>Parser</code> class which has the <code>Parser#parse()</code> operation. This operation will throw an error if the user input does not match the command format or is an invalid context to switch to.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There are only 2 valid contexts which a user can switch to with the command.<br>
+v: 'volunteer' context<br>
+e: 'event' context
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>switch</code> command updates the context found in <code>ModelManager</code> before raising the context change event to update the UI.</p>
+</div>
+<div class="paragraph">
+<p>The figure below is the sequence diagram to show how the <code>switch</code> command works when switching from volunteer to event context.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Command_Switch_SequenceDiagram.png" alt="switch SD" width="800">
+</div>
+<div class="title">Figure 10. Simplified sequence diagram of switch command</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-how-context-is-maintained"><a class="link" href="#aspect-how-context-is-maintained">Aspect: How context is maintained</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create a new <code>Context</code> class.</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Can support even more contexts in the future due to the flexibility of a class.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tedious to do as relevant methods have to be implemented in model.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Pass a hard-coded context id around.</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No need to create a new object to handle the context.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Difficult to maintain the id throughout the whole application. Any change in context id would require all the codes to be updated.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.1.2. Undo/Redo feature</a></h4>
+<div class="sect4">
+<h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current implementation</a></h5>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -788,7 +877,7 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial a
 <div class="content">
 <img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 10. Sequence diagram of undo operation</div>
+<div class="title">Figure 11. Sequence diagram of undo operation</div>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
@@ -828,11 +917,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
 </div>
-<div class="title">Figure 11. Activity diagram of new command execution</div>
+<div class="title">Figure 12. Activity diagram of new command execution</div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h5>
+<h5 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design considerations</a></h5>
 <div class="sect5">
 <h6 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h6>
 <div class="ulist">
@@ -902,20 +991,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.1.2. [Proposed] Data encryption</a></h4>
+<h4 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.1.3. [Proposed] Data encryption</a></h4>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="logging"><a class="link" href="#logging">4.1.3. Logging</a></h4>
+<h4 id="logging"><a class="link" href="#logging">4.1.4. Logging</a></h4>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.1.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.1.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -946,7 +1035,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.1.4. Configuration</a></h4>
+<h4 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.1.5. Configuration</a></h4>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -968,6 +1057,112 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h3 id="record-management"><a class="link" href="#record-management">4.4. Record management</a></h3>
 <div class="paragraph">
 <p>This section describes the details on how the record management features are implemented.</p>
+</div>
+<div class="sect3">
+<h4 id="manage-function"><a class="link" href="#manage-function">4.4.1. Manage function</a></h4>
+<div class="paragraph">
+<p>The <code>manage</code> command is used in the 'event' context to manage the volunteering records for an event.<br></p>
+</div>
+<div class="sect4">
+<h5 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current implementation</a></h5>
+<div class="paragraph">
+<p>This <code>manage</code> command requires the <code>ManageCommandParser</code> class to parse user input and determine which event to manage.<br></p>
+</div>
+<div class="paragraph">
+<p><code>ManageCommandParser</code> implements the <code>Parser</code> class which has the <code>Parser#parse()</code> operation. This operation will throw an error if the user input is an invalid event id.</p>
+</div>
+<div class="paragraph">
+<p>The <code>manage</code> command updates the context found in <code>ModelManager</code> through the <code>model#switchToRecordContext()</code> function.<br></p>
+</div>
+<div class="paragraph">
+<p>In addition to updating the context, the <code>manage</code> command also does the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Clear all predicates for volunteer list.</p>
+</li>
+<li>
+<p>Filter the existing records by the selected event.</p>
+</li>
+<li>
+<p>Raise a <code>RecordChangeEvent</code> to set the selected event.</p>
+</li>
+<li>
+<p>Raise a <code>ContextChangeEvent</code> to update the UI.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The figure below is the sequence diagram to show how the <code>switch</code> command works when switching from volunteer to event context.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Command_Manage_SequenceDiagram.png" alt="manage SD" width="800">
+</div>
+<div class="title">Figure 13. Simplified sequence diagram for manage command</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-context-switching"><a class="link" href="#aspect-context-switching">Aspect: Context switching</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Utilize <code>Context</code> class used in the <code>switch</code> function. (See <a href="#Implementation-Switch">Section 4.1.1, &#8220;Switch command&#8221;</a>)</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No need to create a new class to change context.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have to create a new method in <code>Context</code> class to handle parsed user input.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Pass event and volunteer objects via <code>LogicManager</code>.</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation is easy.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Classes becomes tightly coupled. The UI component would have access to methods it does not need.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-record-coming-in-v1-3"><a class="link" href="#add-record-coming-in-v1-3">4.4.2. Add record [Coming in V1.3]</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="edit-record-coming-in-v1-3"><a class="link" href="#edit-record-coming-in-v1-3">4.4.3. Edit record [Coming in V1.3]</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="delete-record-coming-in-v1-3"><a class="link" href="#delete-record-coming-in-v1-3">4.4.4. Delete record [Coming in V1.3]</a></h4>
+
 </div>
 </div>
 </div>
@@ -1031,7 +1226,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 12. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 14. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2115,12 +2310,12 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 59%;">
+<table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 22%;">
-<col style="width: 23%;">
-<col style="width: 25%;">
-<col style="width: 30%;">
+<col style="width: 21.2121%;">
+<col style="width: 23.2323%;">
+<col style="width: 25.2525%;">
+<col style="width: 30.3031%;">
 </colgroup>
 <thead>
 <tr>
@@ -2282,7 +2477,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 59%;">
+<table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
 </colgroup>
@@ -2938,10 +3133,10 @@ Use case resumes from step 5.</p>
 <div class="sect1">
 <h2 id="glossary"><a class="link" href="#glossary">Appendix F: Glossary</a></h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all" style="width: 59%;">
+<table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 30%;">
+<col style="width: 70%;">
 </colgroup>
 <thead>
 <tr>
@@ -2965,6 +3160,10 @@ Use case resumes from step 5.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Application</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Refers to our system</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Context</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A context refers to the management screen that users will see.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>UCXX</strong></p></td>
@@ -3087,4 +3286,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 15:03:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 15:51:49 UTC</div></div></div></body></html>
