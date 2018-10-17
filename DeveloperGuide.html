@@ -1027,10 +1027,10 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.1.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file. (See <a href="#Implementation-Configuration">Section 4.1.4, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
-<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
+<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level.</p>
 </li>
 <li>
 <p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
@@ -1043,16 +1043,16 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
+<p><code>SEVERE</code> : Designates critical error events which may possibly cause the termination of the application.</p>
 </li>
 <li>
-<p><code>WARNING</code> : Can continue, but with caution</p>
+<p><code>WARNING</code> : Designates potentially harmful events which can be continued from, but with caution.</p>
 </li>
 <li>
-<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
+<p><code>INFO</code> : Designates informational events that highlight noteworthy actions by the application.</p>
 </li>
 <li>
-<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
+<p><code>FINE</code> : Designates event details that are not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size.</p>
 </li>
 </ul>
 </div>
@@ -1131,29 +1131,41 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <ul>
 <li>
 <p><strong>Alternative 1 (current choice):</strong> Export as PDF.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Exports volunteer details in a convenient format for immediate use and distribution.</p>
-</li>
-<li>
-<p>Cons: PDF template has to be set within the application.</p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exports volunteer details in a convenient format for immediate use and distribution.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PDF template has to be set within the application.</p></td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
 <p><strong>Alternative 2:</strong> Display volunteer data in a window within the application.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Allows the volunteer manager flexibility as to what to do with the volunteer details. This could include manually inputting it into an existing certificate creation application, or a document template.</p>
-</li>
-<li>
-<p>Cons: Requires more manual work on the volunteer manager&#8217;s side, especially when the process can be automated to enhance his/her productivity. Certificate templates are also infrequently updated, and thus the costs in terms of efficiency outweigh the benefits in terms of flexibility.</p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the volunteer manager flexibility as to what to do with the volunteer details. This could include manually inputting it into an existing certificate creation application, or a document template.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires more manual work on the volunteer manager&#8217;s side, especially when the process can be automated to enhance his/her productivity. Certificate templates are also infrequently updated, and thus the costs in terms of efficiency outweigh the benefits in terms of flexibility.</p></td>
+</tr>
+</tbody>
+</table>
 </li>
 </ul>
 </div>
@@ -1164,42 +1176,60 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <ul>
 <li>
 <p><strong>Alternative 1 (current choice):</strong> Apache PDFBox</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Open source, offers more specific functionality for PDFs than Apache FOP, covers all of the pdf creation and manipulation functionality required for this feature.</p>
-</li>
-<li>
-<p>Cons: Not the most efficient for creating PDFs (refer to <a href="http://abhishekkumararya.blogspot.com/2013/09/comparison-of-java-based-pdf-generation.html">this comparison study</a>).</p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open source, offers more specific functionality for PDFs than Apache FOP, covers all of the pdf creation and manipulation functionality required for this feature.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not the most efficient for creating PDFs (refer to <a href="http://abhishekkumararya.blogspot.com/2013/09/comparison-of-java-based-pdf-generation.html">this comparison study</a>).</p></td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
 <p><strong>Alternative 2:</strong> Apache FOP</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Open source, allows for conversion and formatting of XML data to PDF.</p>
-</li>
-<li>
-<p>Cons: Resource intensive, not the most efficient for PDF creation, and lacks features such as updating and merging PDFs.</p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open source, allows for conversion and formatting of XML data to PDF.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resource intensive, not the most efficient for PDF creation, and lacks features such as updating and merging PDFs.</p></td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
 <p><strong>Alternative 3:</strong> iText</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Fastest of the lot for PDF generation (refer to <a href="http://abhishekkumararya.blogspot.com/2013/09/comparison-of-java-based-pdf-generation.html">this comparison study</a>).</p>
-</li>
-<li>
-<p>Cons: Now only available as a free trial, requires a license.</p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fastest of the lot for PDF generation (refer to <a href="http://abhishekkumararya.blogspot.com/2013/09/comparison-of-java-based-pdf-generation.html">this comparison study</a>).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Now only available as a free trial, requires a license.</p></td>
+</tr>
+</tbody>
+</table>
 </li>
 </ul>
 </div>
@@ -1210,29 +1240,41 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <ul>
 <li>
 <p><strong>Alternative 1 (current choice):</strong> Use Volunteer&#8217;s NRIC</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Is unique to each volunteer and can be recovered easily, given the volunteer&#8217;s name or other personal information. It also adds credibility to the exported volunteer certificate.</p>
-</li>
-<li>
-<p>Cons: Requires more space as each NRIC can be represented as string of length 9 or a 7-digit integer.</p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Is unique to each volunteer and can be recovered easily, given the volunteer&#8217;s name or other personal information. It also adds credibility to the exported volunteer certificate.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires more space as each NRIC can be represented as string of length 9 or a 7-digit integer.</p></td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
 <p><strong>Alternative 2:</strong> Use a Volunteer ID</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Shorter than NRIC and still serves the purpose, and can be auto-incremented.</p>
-</li>
-<li>
-<p>Cons: Hard to recover, even if additional information about the volunteer is provided. Would also be meaningless to a third person to whom the certificate is presented for verification purposes.</p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shorter than NRIC and still serves the purpose, and can be auto-incremented.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hard to recover, even if additional information about the volunteer is provided. Would also be meaningless to a third person to whom the certificate is presented for verification purposes.</p></td>
+</tr>
+</tbody>
+</table>
 </li>
 </ul>
 </div>
@@ -1331,6 +1373,10 @@ the highest ID with the event ID and creates the event. If it isn&#8217;t, skip 
 </div>
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="delete-event-coming-in-v1-3"><a class="link" href="#delete-event-coming-in-v1-3">4.3.2. Delete event [Coming in V1.3]</a></h4>
+
 </div>
 </div>
 <div class="sect2">
@@ -2746,9 +2792,6 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{To be updated and expanded}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -3566,4 +3609,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 19:03:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 23:45:41 UTC</div></div></div></body></html>
