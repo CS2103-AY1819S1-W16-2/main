@@ -30,7 +30,7 @@
 <li><a href="#listing-all-volunteers-code-list-code">3.2.2. Listing all volunteers : <code>list</code></a></li>
 <li><a href="#editing-volunteers-details-code-edit-code">3.2.3. Editing volunteers details : <code>edit</code></a></li>
 <li><a href="#deleting-volunteer-details-code-delete-code">3.2.4. Deleting volunteer details : <code>delete</code></a></li>
-<li><a href="#exporting-volunteer-certificate-code-exportcert-code">3.2.5. Exporting volunteer certificate : <code>exportcert</code></a></li>
+<li><a href="#exporting-volunteer-certificate-code-exportcert-coming-in-v1-3-code">3.2.5. Exporting volunteer certificate : <code>exportcert [coming in v1.3]</code></a></li>
 </ul>
 </li>
 <li><a href="#event-management">3.3. Event Management</a>
@@ -51,7 +51,7 @@
 </li>
 <li><a href="#miscellaneous">3.5. Miscellaneous</a>
 <ul class="sectlevel3">
-<li><a href="#saving-the-data">3.5.1. Saving the data</a></li>
+<li><a href="#saving-data">3.5.1. Saving data</a></li>
 <li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.5.2. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
@@ -65,8 +65,8 @@
 <li><a href="#record-management-2">4.4. Record Management</a></li>
 </ul>
 </li>
-<li><a href="#faq">5. FAQ</a></li>
-<li><a href="#glossary">6. Glossary</a></li>
+<li><a href="#glossary">5. Glossary</a></li>
+<li><a href="#faq">6. FAQ</a></li>
 </ul>
 </div>
 </div>
@@ -77,17 +77,29 @@
 <p>SocialCare morphs the given AB4 application into a volunteer management system that allows Social Welfare Organisations to better manage their volunteers &amp; events, and gain further statistical insights from the data.<br></p>
 </div>
 <div class="paragraph">
-<p>SocialCare is for organizations which <strong>prefer to use a desktop app for managing their volunteers.</strong> More importantly, SocialCare is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, SocialCare can get your volunteer and event management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>SocialCare is for organizations which <strong>prefer to use a desktop app for managing their volunteers.</strong> More importantly, SocialCare is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, SocialCare can get your volunteer and event management tasks done faster than traditional GUI apps.</p>
+</div>
+<div class="paragraph">
+<p>Interested? Jump to <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started.</p>
+</div>
+<div class="paragraph">
+<p>Enjoy!</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section contains information on how you can run SocialCare on your desktop.</p>
+</div>
+<div class="paragraph">
+<p>To begin, follow the steps below:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
+<p>Check you have Java version <code>9</code> or later installed in your Computer.</p>
 </li>
 <li>
 <p>Download the latest <code>socialcare.jar</code> <a href="https://github.com/CS2103-AY1819S1-W16-2/main/releases">here</a>.</p>
@@ -97,20 +109,33 @@
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+</li>
+</ol>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
 </div>
+<div class="title">Figure 1. GUI</div>
 </div>
-</li>
-<li>
-<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
+<div class="paragraph">
+<p>The figure above is a sample display of the application.</p>
+</div>
+<div class="paragraph">
+<p>To ensure that everything is running, you can try entering commands into the command box and press <kbd>Enter</kbd> to execute them.<br>
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
-</li>
-<li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
-</li>
-</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -145,14 +170,30 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect3">
 <h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1.1. Viewing help : <code>help</code></a></h4>
 <div class="paragraph">
+<p>Opens a new window which shows the user guide.</p>
+</div>
+<div class="paragraph">
 <p>Format: <code>help</code></p>
+</div>
+<div class="paragraph">
+<p>Example(s):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>help</code><br>
+A new window appears which displays the user guide.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
 <h4 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.1.2. Listing entered commands : <code>history</code></a></h4>
 <div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
-Format: <code>history</code></p>
+<p>Lists all the commands that you have entered in reverse chronological order.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>history</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -168,12 +209,18 @@ Format: <code>history</code></p>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Example(s):
+* <code>history</code></p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.1.3. Undoing previous command : <code>undo</code></a></h4>
 <div class="paragraph">
-<p>Restores the system to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
+<p>Restores the system to the state before the previous <em>undoable</em> command was executed.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>undo</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -190,7 +237,7 @@ Format: <code>undo</code></p>
 </table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example(s):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -217,11 +264,13 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 <div class="sect3">
 <h4 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.1.4. Redoing the previously undone command : <code>redo</code></a></h4>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+<p>Reverses the most recent <code>undo</code> command.<br></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Example(s):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -249,15 +298,60 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <div class="sect3">
 <h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.1.5. Clearing all entries : <code>clear</code></a></h4>
 <div class="paragraph">
-<p>Clears all entries from the volunteers or events, depending on context.<br>
-Format: <code>clear</code></p>
+<p>Clears all entries from the volunteers or events, depending on context.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>clear</code></p>
+</div>
+<div class="paragraph">
+<p>Example(s):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>clear</code><br>
+Resets the application to a clean state.</p>
+</li>
+</ul>
+</div>
+<div class="openblock clearfix">
+<div class="content">
+<div class="imageblock left">
+<div class="content">
+<img src="images/command_clear_before.png" alt="clear bef" width="450">
+</div>
+<div class="title">Figure 2. Before clearing entries</div>
+</div>
+<div class="imageblock left">
+<div class="content">
+<img src="images/command_clear_after.png" alt="clear aft" width="450">
+</div>
+<div class="title">Figure 3. After clearing entries</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The figures above shows the before and after state of clearing the entries of the application.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.1.6. Exiting the program : <code>exit</code></a></h4>
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
+<p>Exits the program.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>exit</code></p>
+</div>
+<div class="paragraph">
+<p>Example(s):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>exit</code><br>
+Exists from the program and return to the user&#8217;s desktop.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -289,7 +383,7 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example(s):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -303,15 +397,15 @@ Switch to the 'event' context when in 'volunteer' context.</p>
 <div class="content">
 <div class="imageblock left">
 <div class="content">
-<img src="images/command_switch_before.png" alt="Before switch" width="450">
+<img src="images/command_switch_before.png" alt="switch bef" width="450">
 </div>
-<div class="title">Figure 1. Before (Volunteer context)</div>
+<div class="title">Figure 4. Before (Volunteer context)</div>
 </div>
 <div class="imageblock left">
 <div class="content">
-<img src="images/command_switch_after.png" alt="After switch" width="450">
+<img src="images/command_switch_after.png" alt="switch aft" width="450">
 </div>
-<div class="title">Figure 2. After (Event context)</div>
+<div class="title">Figure 5. After (Event context)</div>
 </div>
 </div>
 </div>
@@ -344,7 +438,7 @@ Format: <code>add n/NAME b/BIRTHDAY g/GENDER a/ADDRESS e/EMAIL p/PHONE_NUMBER [t
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example(s):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -368,7 +462,7 @@ Format: <code>list</code></p>
 <h4 id="editing-volunteers-details-code-edit-code"><a class="link" href="#editing-volunteers-details-code-edit-code">3.2.3. Editing volunteers details : <code>edit</code></a></h4>
 <div class="paragraph">
 <p>Edit details of an existing volunteer in the system when in the volunteers context.<br>
-Format: <code>edit INDEX [n/NAME] [b/BIRTHDAY] [g/GENDER] [a/ADDRESS] [e/EMAIL] [p/PHONE_NUMBER] [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>edit VOLUNTEER_INDEX [n/NAME] [b/BIRTHDAY] [g/GENDER] [a/ADDRESS] [e/EMAIL] [p/PHONE_NUMBER] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -394,7 +488,7 @@ Format: <code>edit INDEX [n/NAME] [b/BIRTHDAY] [g/GENDER] [a/ADDRESS] [e/EMAIL] 
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example(s):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -409,10 +503,10 @@ Edits the name of the volunteer at index 1</p>
 <h4 id="deleting-volunteer-details-code-delete-code"><a class="link" href="#deleting-volunteer-details-code-delete-code">3.2.4. Deleting volunteer details : <code>delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes details of an existing volunteer in the system when in the volunteer context.<br>
-Format: <code>delete INDEX</code></p>
+Format: <code>delete VOLUNTEER_INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example(s):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -424,7 +518,7 @@ Deletes the details of the volunteer specified at index 1</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="exporting-volunteer-certificate-code-exportcert-code"><a class="link" href="#exporting-volunteer-certificate-code-exportcert-code">3.2.5. Exporting volunteer certificate : <code>exportcert</code></a></h4>
+<h4 id="exporting-volunteer-certificate-code-exportcert-coming-in-v1-3-code"><a class="link" href="#exporting-volunteer-certificate-code-exportcert-coming-in-v1-3-code">3.2.5. Exporting volunteer certificate : <code>exportcert [coming in v1.3]</code></a></h4>
 <div class="paragraph">
 <p>Exports a PDF document detailing the volunteer&#8217;s involvement with the organisation, when in the volunteers context. This includes:</p>
 </div>
@@ -458,7 +552,7 @@ Deletes the details of the volunteer specified at index 1</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>Example(s):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -501,7 +595,7 @@ Exports PDF certificate of volunteer at specified index 2 to local folder 'certs
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example(s):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -617,13 +711,13 @@ t/charity</code></p>
 <div class="content">
 <img src="images/command_add_event_before.png" alt="Before add" width="800">
 </div>
-<div class="title">Figure 3. Before entering the add command</div>
+<div class="title">Figure 6. Before entering the add command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/command_add_event_after.png" alt="After add" width="800">
 </div>
-<div class="title">Figure 4. A new event is added after entering the add command</div>
+<div class="title">Figure 7. A new event is added after entering the add command</div>
 </div>
 </div>
 </div>
@@ -643,14 +737,14 @@ t/charity</code></p>
 <p>Edit details of an existing event in the system when in the 'event' context.<br></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit INDEX [n/NAME] [l/LOCATION] [sd/START_DATE] [ed/END_DATE] [st/START_TIME] [et/END_TIME] [d/DESCRIPTION] [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code>edit EVENT_INDEX [n/NAME] [l/LOCATION] [sd/START_DATE] [ed/END_DATE] [st/START_TIME] [et/END_TIME] [d/DESCRIPTION] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the event at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed event list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the event at the specified <code>EVENT_INDEX</code>. The index refers to the index number shown in the displayed event list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -669,7 +763,7 @@ t/charity</code></p>
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example(s):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -688,13 +782,13 @@ Edits the name of event at index 1 and removes all tags.</p>
 <div class="content">
 <img src="images/command_edit_event_before.png" alt="Before add" width="800">
 </div>
-<div class="title">Figure 5. Before entering the edit command</div>
+<div class="title">Figure 8. Before entering the edit command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/command_edit_event_after.png" alt="After add" width="800">
 </div>
-<div class="title">Figure 6. The targeted event is updated to reflect the new values after entering the edit command</div>
+<div class="title">Figure 9. The targeted event is updated to reflect the new values after entering the edit command</div>
 </div>
 </div>
 </div>
@@ -705,10 +799,10 @@ Edits the name of event at index 1 and removes all tags.</p>
 <p>Deletes details of an existing event in the system when in the 'event' context.<br></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete INDEX</code></p>
+<p>Format: <code>delete EVENT_INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example(s):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -727,13 +821,13 @@ Deletes the details of the event specified at index 2.</p>
 <div class="content">
 <img src="images/command_delete_event_before.png" alt="Before add" width="800">
 </div>
-<div class="title">Figure 7. The event at index 2 is targeted before entering the delete command</div>
+<div class="title">Figure 10. The event at index 2 is targeted before entering the delete command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/command_delete_event_after.png" alt="After add" width="800">
 </div>
-<div class="title">Figure 8. The targeted event is deleted after entering the delete command</div>
+<div class="title">Figure 11. The targeted event is deleted after entering the delete command</div>
 </div>
 </div>
 </div>
@@ -767,7 +861,7 @@ Deletes the details of the event specified at index 2.</p>
 <p>Format: <code>manage EVENT_INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example(s):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -781,7 +875,7 @@ View the list of volunteers assigned to event at index 1.</p>
 <div class="content">
 <img src="images/command_switch_after.png" alt="view events" width="800">
 </div>
-<div class="title">Figure 9. Viewing of events</div>
+<div class="title">Figure 12. Viewing of events</div>
 </div>
 <div class="paragraph">
 <p>The figure above shows the 'event' context that the user has to be in before executing the <code>manage</code> command.</p>
@@ -790,7 +884,7 @@ View the list of volunteers assigned to event at index 1.</p>
 <div class="content">
 <img src="images/command_manage_view.png" alt="manage" width="800">
 </div>
-<div class="title">Figure 10. Sample display</div>
+<div class="title">Figure 13. Sample display</div>
 </div>
 <div class="paragraph">
 <p>The figure above shows how the UI might look like after selecting to manage it.<br></p>
@@ -828,13 +922,13 @@ View the list of volunteers assigned to event at index 1.</p>
 <div class="content">
 <img src="images/command_record_add.png" alt="add record" width="800">
 </div>
-<div class="title">Figure 11. Adding a record</div>
+<div class="title">Figure 14. Adding a record</div>
 </div>
 <div class="paragraph">
 <p>The circled numbers from the figure above indicate the VOLUNTEER_INDEX.</p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example(s):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -882,13 +976,13 @@ Adds a volunteer at index 3 to the event with 5 hours.</p>
 <div class="content">
 <img src="images/command_record_edit.png" alt="edit record" width="800">
 </div>
-<div class="title">Figure 12. Editing a record</div>
+<div class="title">Figure 15. Editing a record</div>
 </div>
 <div class="paragraph">
 <p>The highlighted column from the figure above indicate the VOLUNTEER_INDEX for each volunteer.</p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example(s):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -926,10 +1020,10 @@ Updates amount of hours volunteered for volunteer at index 3 to 5 hours with rem
 <div class="content">
 <img src="images/command_record_edit.png" alt="delete record" width="800">
 </div>
-<div class="title">Figure 13. Deleting a record</div>
+<div class="title">Figure 16. Deleting a record</div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example(s):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -944,7 +1038,7 @@ Deletes the volunteer record of the volunteer at index 1.</p>
 <div class="sect2">
 <h3 id="miscellaneous"><a class="link" href="#miscellaneous">3.5. Miscellaneous</a></h3>
 <div class="sect3">
-<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.5.1. Saving the data</a></h4>
+<h4 id="saving-data"><a class="link" href="#saving-data">3.5.1. Saving data</a></h4>
 <div class="paragraph">
 <p>SocialCare data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -952,9 +1046,7 @@ There is no need to save manually.</p>
 </div>
 <div class="sect3">
 <h4 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.5.2. Encrypting data files <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
-</div>
+
 </div>
 </div>
 </div>
@@ -962,116 +1054,185 @@ There is no need to save manually.</p>
 <div class="sect1">
 <h2 id="commands-summary"><a class="link" href="#commands-summary">4. Commands Summary</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section contains a summary of the commands available.</p>
+</div>
 <div class="sect2">
 <h3 id="general-commands-2"><a class="link" href="#general-commands-2">4.1. General Commands</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>History</strong> : <code>history</code></p>
-</li>
-<li>
-<p><strong>Undo</strong> : <code>undo</code></p>
-</li>
-<li>
-<p><strong>Redo</strong> : <code>redo</code></p>
-</li>
-<li>
-<p><strong>Exit</strong> : <code>exit</code></p>
-</li>
-<li>
-<p><strong>Switching Context</strong> : <code>switch</code><br>
-e.g. <code>switch -e</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 45%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Format</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Help</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>History</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Undo</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Redo</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Switch</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>switch</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>switch -e</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="volunteer-management-2"><a class="link" href="#volunteer-management-2">4.2. Volunteer Management</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add</strong> <code>add n/NAME b/BIRTHDAY g/GENDER a/ADDRESS e/EMAIL p/PHONE_NUMBER [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/John Doe b/05-08-1995 g/M a/Yishun Block 62 p/87183749 e/John@gmail.com</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME][b/BIRTHDAY] [g/GENDER] [a/ADDRESS] [e/EMAIL] [p/PHONE_NUMBER] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 45%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Format</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME b/BIRTHDAY g/GENDER a/ADDRESS e/EMAIL p/PHONE_NUMBER [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/John Doe b/05-08-199ck 62 p/87183749 e/John@gmail.com</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit VOLUNTEER_INDEX [n/NAME][b/BIRTHDAY] [g/GENDER] [a/ADDRESS] [e/EMAIL] [p/PHONE_NUMBER] [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit 2 n/James Lee e/jameslee@example.com</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete VOLUNTEER_INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Export Certificate</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exportcert VOLUNTEER_INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exportcert 2</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="event-management-2"><a class="link" href="#event-management-2">4.3. Event Management</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add</strong> <code>add n/NAME l/LOCATION sd/START_DATE ed/END_DATE d/DESCRIPTION [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/Fundraising l/Tampines S sd/31-09-2018 ed/31-09-2018 st/13:00 et/18:00 d/Raising funds t/fundraiser
-t/charity</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [l/LOCATION] [sd/START_DATE] [ed/END_DATE] [d/DESCRIPTION] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/Fundraiser</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 45%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Format</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME l/LOCATION sd/START_DATE ed/END_DATE d/DESCRIPTION [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/Fundraising l/Tampines S sd/31-09-2018 ed/31-09-2018 st/13:00 et/18:00 d/Raising funds t/fundraiser
+                                                                                       t/charity</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit EVENT_INDEX [n/NAME] [l/LOCATION] [sd/START_DATE] [ed/END_DATE] [d/DESCRIPTION] [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit 2 n/Fundraiser</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete EVENT_INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 3</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="record-management-2"><a class="link" href="#record-management-2">4.4. Record Management</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Manage</strong> <code>manage EVENT_INDEX</code><br>
-e.g. <code>manage 1</code></p>
-</li>
-<li>
-<p><strong>Add</strong> <code>add [h/HOURS] VOLUNTEER_INDEX&#8230;&#8203;</code><br>
-e.g. <code>add h/5 1 2 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> <code>edit [-a] h/HOURS [VOLUNTEER_INDEX]&#8230;&#8203;</code><br>
-e.g. <code>edit h/5 1 2 3</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> <code>delete VOLUNTEER_INDEX</code><br>
-e.g. <code>delete 1</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 45%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Format</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Manage</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>manage EVENT_INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>manage 1</code>                                                                            t/charity`</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add VOLUNTEER_INDEX [h/HOURS] [r/REMARKS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add 1 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit [-a] h/HOURS [VOLUNTEER_INDEX]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit -a 8</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete VOLUNTEER_INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete 1</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous SocialCare folder.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">6. Glossary</a></h2>
+<h2 id="glossary"><a class="link" href="#glossary">5. Glossary</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1092,4 +1253,13 @@ e.g. <code>delete 1</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 16:01:50 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">6. FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous SocialCare folder.</p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 19:01:59 UTC</div></div></div></body></html>
