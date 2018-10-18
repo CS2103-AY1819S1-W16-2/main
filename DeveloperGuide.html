@@ -1070,9 +1070,9 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>This section describes the details on how the volunteer management features are implemented.</p>
 </div>
 <div class="sect3">
-<h4 id="export-volunteer-certificate"><a class="link" href="#export-volunteer-certificate">4.2.1. Export Volunteer Certificate</a></h4>
+<h4 id="export-volunteer-certificate-coming-in-v1-3"><a class="link" href="#export-volunteer-certificate-coming-in-v1-3">4.2.1. Export Volunteer Certificate [Coming in V1.3]</a></h4>
 <div class="paragraph">
-<p>The <code>exportcert</code> command enables the volunteer manager to export a PDF document (certificate) detailing a volunteer&#8217;s involvement with the organisation. This is only possible when in the 'volunteer' context. The information included in the certificate are as follows:</p>
+<p>The <code>exportcert</code> command enables the volunteer manager to export a PDF document detailing a volunteer&#8217;s involvement with the organisation, to his/her Desktop. This is only possible when in the 'volunteer' context. The information included in the certificate are as follows:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1096,10 +1096,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="paragraph">
 <p>This is a sample of the exported PDF certificate:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock thumb">
 <div class="content">
 <img src="images/VolunteerCert.png" alt="VolunteerCert" width="600">
 </div>
+<div class="title">Figure 14. Sample exported volunteer certificate</div>
 </div>
 <div class="sect4">
 <h5 id="intended-implementation"><a class="link" href="#intended-implementation">Intended Implementation</a></h5>
@@ -1109,7 +1110,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>Inclusion of supported <code>exportcert</code> command.</p>
+<p>Creation of supported <code>exportcert</code> command.</p>
 </li>
 <li>
 <p>Retrieval of the specified volunteer&#8217;s details.</p>
@@ -1118,7 +1119,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>Creation of a new PDF document using Apache PDFBox.</p>
 </li>
 <li>
-<p>Export of the PDF document to a certs folder.</p>
+<p>Export of the PDF document to the user&#8217;s Desktop.</p>
 </li>
 </ul>
 </div>
@@ -1126,11 +1127,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="sect4">
 <h5 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h5>
 <div class="sect5">
-<h6 id="aspect-medium-of-presentation"><a class="link" href="#aspect-medium-of-presentation">Aspect: Medium of Presentation</a></h6>
+<h6 id="aspect-medium-of-presentation"><a class="link" href="#aspect-medium-of-presentation">Aspect: Medium of presentation</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Export as PDF.</p>
+<p><strong>Alternative 1 (current choice):</strong> Export as PDF</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -1143,13 +1144,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">PDF template has to be set within the application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PDF template has to be preset within the application.</p></td>
 </tr>
 </tbody>
 </table>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Display volunteer data in a window within the application.</p>
+<p><strong>Alternative 2:</strong> Display volunteer data in a window within the application</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -1166,14 +1167,10 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>====== Aspect: Choice of PDF creation tool</p>
+</div>
 </li>
-</ul>
-</div>
-</div>
-<div class="sect5">
-<h6 id="aspect-choice-of-pdf-creation-tool"><a class="link" href="#aspect-choice-of-pdf-creation-tool">Aspect: Choice of PDF Creation Tool</a></h6>
-<div class="ulist">
-<ul>
 <li>
 <p><strong>Alternative 1 (current choice):</strong> Apache PDFBox</p>
 <table class="tableblock frame-all grid-all spread">
@@ -1184,7 +1181,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Open source, offers more specific functionality for PDFs than Apache FOP, covers all of the pdf creation and manipulation functionality required for this feature.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open source, offers more specific functionality for PDFs than Apache FOP, and covers all of the pdf creation and manipulation functionality required for this feature.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
@@ -1226,18 +1223,14 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Now only available as a free trial, requires a license.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Now only available as a free trial, and requires a license for extended use.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>====== Aspect: Choice of additional details for identifying volunteer from certificate</p>
+</div>
 </li>
-</ul>
-</div>
-</div>
-<div class="sect5">
-<h6 id="aspect-identifying-volunteer-from-certificate"><a class="link" href="#aspect-identifying-volunteer-from-certificate">Aspect: Identifying Volunteer from Certificate</a></h6>
-<div class="ulist">
-<ul>
 <li>
 <p><strong>Alternative 1 (current choice):</strong> Use Volunteer&#8217;s NRIC</p>
 <table class="tableblock frame-all grid-all spread">
@@ -1426,7 +1419,7 @@ the highest ID with the event ID and creates the event. If it isn&#8217;t, skip 
 <div class="content">
 <img src="images/Command_Manage_SequenceDiagram.png" alt="manage SD" width="800">
 </div>
-<div class="title">Figure 14. Simplified sequence diagram for manage command</div>
+<div class="title">Figure 15. Simplified sequence diagram for manage command</div>
 </div>
 </div>
 <div class="sect4">
@@ -1552,7 +1545,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 15. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 16. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -3609,4 +3602,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 23:45:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 02:18:16 UTC</div></div></div></body></html>
