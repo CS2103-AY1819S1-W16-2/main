@@ -195,8 +195,8 @@ public class AddVolunteerCommandParserTest {
                 VolunteerName.MESSAGE_NAME_CONSTRAINTS);
 
         // non-empty preamble
-        assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_VOLUNTEER_DESC_BOB + GENDER_DESC_BOB +
-                        BIRTHDAY_DESC_BOB + PHONE_VOLUNTEER_DESC_BOB + EMAIL_VOLUNTEER_DESC_BOB
+        assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_VOLUNTEER_DESC_BOB + GENDER_DESC_BOB
+                        + BIRTHDAY_DESC_BOB + PHONE_VOLUNTEER_DESC_BOB + EMAIL_VOLUNTEER_DESC_BOB
                         + ADDRESS_VOLUNTEER_DESC_BOB + TAG_VOLUNTEER_DESC_HUSBAND + TAG_VOLUNTEER_DESC_FRIEND,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddVolunteerCommand.MESSAGE_USAGE));
     }
