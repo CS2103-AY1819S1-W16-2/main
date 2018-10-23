@@ -32,8 +32,9 @@ public class AddCommandIntegrationTest {
     }
 
     @Before
-    public void setVolunteerUp() { modelVolunteer = new ModelManager(getTypicalVolunteerAddressBook(),
-            new UserPrefs());
+    public void setVolunteerUp() {
+        modelVolunteer = new ModelManager(getTypicalVolunteerAddressBook(),
+                new UserPrefs());
     }
 
     @Test

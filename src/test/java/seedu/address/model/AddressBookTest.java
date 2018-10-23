@@ -280,7 +280,9 @@ public class AddressBookTest {
         }
 
         @Override
-        public ObservableList<Volunteer> getVolunteerList() { return volunteers; }
+        public ObservableList<Volunteer> getVolunteerList() {
+            return volunteers;
+        }
 
         @Override
         public ObservableList<Event> getEventList() {

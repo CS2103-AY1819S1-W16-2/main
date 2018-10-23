@@ -59,14 +59,14 @@ public class AddVolunteerCommandParserTest {
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_VOLUNTEER_DESC_BOB
-                + GENDER_DESC_BOB + BIRTHDAY_DESC_BOB + PHONE_VOLUNTEER_DESC_BOB
-                + EMAIL_VOLUNTEER_DESC_BOB + ADDRESS_VOLUNTEER_DESC_BOB + TAG_VOLUNTEER_DESC_FRIEND,
+                        + GENDER_DESC_BOB + BIRTHDAY_DESC_BOB + PHONE_VOLUNTEER_DESC_BOB
+                        + EMAIL_VOLUNTEER_DESC_BOB + ADDRESS_VOLUNTEER_DESC_BOB + TAG_VOLUNTEER_DESC_FRIEND,
                 new AddVolunteerCommand(expectedVolunteer));
 
         // multiple names - last name accepted
         assertParseSuccess(parser, NAME_VOLUNTEER_DESC_AMY + NAME_VOLUNTEER_DESC_BOB
-                + GENDER_DESC_BOB + BIRTHDAY_DESC_BOB + PHONE_VOLUNTEER_DESC_BOB
-                + EMAIL_VOLUNTEER_DESC_BOB + ADDRESS_VOLUNTEER_DESC_BOB + TAG_VOLUNTEER_DESC_FRIEND,
+                        + GENDER_DESC_BOB + BIRTHDAY_DESC_BOB + PHONE_VOLUNTEER_DESC_BOB
+                        + EMAIL_VOLUNTEER_DESC_BOB + ADDRESS_VOLUNTEER_DESC_BOB + TAG_VOLUNTEER_DESC_FRIEND,
                 new AddVolunteerCommand(expectedVolunteer));
 
         // multiple genders - last gender accepted
@@ -98,8 +98,8 @@ public class AddVolunteerCommandParserTest {
         Volunteer expectedVolunteerMultipleTags = new VolunteerBuilder(BOB)
                 .withTags(VALID_VOLUNTEER_TAG_STUDENT, VALID_VOLUNTEER_TAG_DRIVER).build();
         assertParseSuccess(parser, NAME_VOLUNTEER_DESC_BOB + GENDER_DESC_BOB + BIRTHDAY_DESC_BOB
-                + PHONE_VOLUNTEER_DESC_BOB + EMAIL_VOLUNTEER_DESC_BOB + ADDRESS_VOLUNTEER_DESC_BOB
-                + TAG_VOLUNTEER_DESC_HUSBAND + TAG_VOLUNTEER_DESC_FRIEND,
+                        + PHONE_VOLUNTEER_DESC_BOB + EMAIL_VOLUNTEER_DESC_BOB + ADDRESS_VOLUNTEER_DESC_BOB
+                        + TAG_VOLUNTEER_DESC_HUSBAND + TAG_VOLUNTEER_DESC_FRIEND,
                 new AddVolunteerCommand(expectedVolunteerMultipleTags));
     }
 
@@ -108,7 +108,7 @@ public class AddVolunteerCommandParserTest {
         // zero tags
         Volunteer expectedVolunteer = new VolunteerBuilder(AMY).withTags().build();
         assertParseSuccess(parser, NAME_VOLUNTEER_DESC_AMY + GENDER_DESC_AMY + BIRTHDAY_DESC_AMY
-                + PHONE_VOLUNTEER_DESC_AMY + EMAIL_VOLUNTEER_DESC_AMY + ADDRESS_VOLUNTEER_DESC_AMY,
+                        + PHONE_VOLUNTEER_DESC_AMY + EMAIL_VOLUNTEER_DESC_AMY + ADDRESS_VOLUNTEER_DESC_AMY,
                 new AddVolunteerCommand(expectedVolunteer));
     }
 
@@ -118,7 +118,7 @@ public class AddVolunteerCommandParserTest {
 
         // missing name prefix
         assertParseFailure(parser, VALID_VOLUNTEER_NAME_BOB + GENDER_DESC_BOB + BIRTHDAY_DESC_BOB
-                + PHONE_VOLUNTEER_DESC_BOB + EMAIL_VOLUNTEER_DESC_BOB + ADDRESS_VOLUNTEER_DESC_BOB,
+                        + PHONE_VOLUNTEER_DESC_BOB + EMAIL_VOLUNTEER_DESC_BOB + ADDRESS_VOLUNTEER_DESC_BOB,
                 expectedMessage);
 
         // missing gender prefix
@@ -133,22 +133,22 @@ public class AddVolunteerCommandParserTest {
 
         // missing phone prefix
         assertParseFailure(parser, NAME_VOLUNTEER_DESC_BOB + GENDER_DESC_BOB + BIRTHDAY_DESC_BOB
-                + VALID_VOLUNTEER_PHONE_BOB + EMAIL_VOLUNTEER_DESC_BOB + ADDRESS_VOLUNTEER_DESC_BOB,
+                        + VALID_VOLUNTEER_PHONE_BOB + EMAIL_VOLUNTEER_DESC_BOB + ADDRESS_VOLUNTEER_DESC_BOB,
                 expectedMessage);
 
         // missing email prefix
         assertParseFailure(parser, NAME_VOLUNTEER_DESC_BOB + GENDER_DESC_BOB + BIRTHDAY_DESC_BOB
-                + PHONE_VOLUNTEER_DESC_BOB + VALID_VOLUNTEER_EMAIL_BOB + ADDRESS_VOLUNTEER_DESC_BOB,
+                        + PHONE_VOLUNTEER_DESC_BOB + VALID_VOLUNTEER_EMAIL_BOB + ADDRESS_VOLUNTEER_DESC_BOB,
                 expectedMessage);
 
         // missing address prefix
         assertParseFailure(parser, NAME_VOLUNTEER_DESC_BOB + GENDER_DESC_BOB + BIRTHDAY_DESC_BOB
-                + PHONE_VOLUNTEER_DESC_BOB + EMAIL_VOLUNTEER_DESC_BOB + VALID_VOLUNTEER_ADDRESS_BOB,
+                        + PHONE_VOLUNTEER_DESC_BOB + EMAIL_VOLUNTEER_DESC_BOB + VALID_VOLUNTEER_ADDRESS_BOB,
                 expectedMessage);
 
         // all prefixes missing
         assertParseFailure(parser, VALID_VOLUNTEER_NAME_BOB + VALID_GENDER_BOB + VALID_BIRTHDAY_BOB
-                + VALID_VOLUNTEER_PHONE_BOB + VALID_VOLUNTEER_EMAIL_BOB + VALID_VOLUNTEER_ADDRESS_BOB,
+                        + VALID_VOLUNTEER_PHONE_BOB + VALID_VOLUNTEER_EMAIL_BOB + VALID_VOLUNTEER_ADDRESS_BOB,
                 expectedMessage);
     }
 
@@ -191,7 +191,7 @@ public class AddVolunteerCommandParserTest {
 
         // two invalid values, only first invalid value reported
         assertParseFailure(parser, INVALID_VOLUNTEER_NAME_DESC + GENDER_DESC_BOB + BIRTHDAY_DESC_BOB
-                + PHONE_VOLUNTEER_DESC_BOB + EMAIL_VOLUNTEER_DESC_BOB + INVALID_VOLUNTEER_ADDRESS_DESC,
+                        + PHONE_VOLUNTEER_DESC_BOB + EMAIL_VOLUNTEER_DESC_BOB + INVALID_VOLUNTEER_ADDRESS_DESC,
                 VolunteerName.MESSAGE_NAME_CONSTRAINTS);
 
         // non-empty preamble

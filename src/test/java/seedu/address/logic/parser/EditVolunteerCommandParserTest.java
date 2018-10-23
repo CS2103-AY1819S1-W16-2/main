@@ -128,7 +128,7 @@ public class EditVolunteerCommandParserTest {
 
         // multiple invalid values, but only the first invalid value is captured
         assertParseFailure(parser, "1" + INVALID_VOLUNTEER_NAME_DESC + INVALID_VOLUNTEER_EMAIL_DESC
-                        + VALID_VOLUNTEER_ADDRESS_AMY + VALID_VOLUNTEER_PHONE_AMY + VALID_GENDER_AMY
+                + VALID_VOLUNTEER_ADDRESS_AMY + VALID_VOLUNTEER_PHONE_AMY + VALID_GENDER_AMY
                 + VALID_BIRTHDAY_AMY, VolunteerName.MESSAGE_NAME_CONSTRAINTS);
     }
 
