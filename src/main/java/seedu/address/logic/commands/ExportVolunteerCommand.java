@@ -91,7 +91,6 @@ public class ExportVolunteerCommand extends Command {
         //root element - currently tag as volunteer
         Element rootElement = doc.createElement(exportTypeV);
         doc.appendChild(rootElement);
-        //can be changed to EVENT_NAME then have VOLUNTEERS as its elements
 
         //root attributes to this particular volunteer listing the details
         Attr nameAttr = doc.createAttribute("Name");
@@ -99,31 +98,31 @@ public class ExportVolunteerCommand extends Command {
         rootElement.setAttributeNode(nameAttr);
 
         Attr addressAttr = doc.createAttribute("Address");
-        nameAttr.setValue(volunteer.getAddress().toString());
+        addressAttr.setValue(volunteer.getAddress().toString());
         rootElement.setAttributeNode(addressAttr);
 
         Attr bdayAttr = doc.createAttribute("Birthday");
-        nameAttr.setValue(volunteer.getBirthday().toString());
+        bdayAttr.setValue(volunteer.getBirthday().toString());
         rootElement.setAttributeNode(bdayAttr);
 
         Attr emailAttr = doc.createAttribute("Email");
-        nameAttr.setValue(volunteer.getEmail().toString());
+        emailAttr.setValue(volunteer.getEmail().toString());
         rootElement.setAttributeNode(emailAttr);
 
         Attr phoneAttr = doc.createAttribute("Phone");
-        nameAttr.setValue(volunteer.getPhone().toString());
+        phoneAttr.setValue(volunteer.getPhone().toString());
         rootElement.setAttributeNode(phoneAttr);
 
         Attr genderAttr = doc.createAttribute("Gender");
-        nameAttr.setValue(volunteer.getGender().toString());
+        genderAttr.setValue(volunteer.getGender().toString());
         rootElement.setAttributeNode(genderAttr);
 
         Attr tagsAttr = doc.createAttribute("Tags");
-        nameAttr.setValue(volunteer.getTags().toString());
+        tagsAttr.setValue(volunteer.getTags().toString());
         rootElement.setAttributeNode(tagsAttr);
 
         Attr IDAttr = doc.createAttribute("VolunteerID");
-        nameAttr.setValue(volunteer.getVolunteerId().toString());
+        IDAttr.setValue(volunteer.getVolunteerId().toString());
         rootElement.setAttributeNode(IDAttr);
 
 
