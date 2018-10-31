@@ -23,6 +23,7 @@ import seedu.address.model.Model;
 import seedu.address.model.event.Event;
 import seedu.address.model.event.EventId;
 import seedu.address.model.record.Record;
+import seedu.address.model.volunteer.Volunteer;
 
 import static java.util.Objects.requireNonNull;
 
