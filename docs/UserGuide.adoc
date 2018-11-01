@@ -397,11 +397,11 @@ To avoid exported file name clashes for volunteers with the same name, we have a
 
 
 [[command-volunteer-exportvolunteerxml]]
-==== Exporting volunteer information as XML: exportvolunteerxml
+==== Exporting volunteer information as XML: `exportvolunteerxml`
 
 Exports information about a volunteer's information and events participated as an XML file to the user's desktop. This XML file can then ported.
 
-Format: 'exportvolunteerxml VOLUNTEER_INDEX'
+Format: `exportvolunteerxml VOLUNTEER_INDEX`
 
 * Exports the volunteer's information at the specified index
 * VOLUNTEER_INDEX must be a positive integer
@@ -410,16 +410,16 @@ Format: 'exportvolunteerxml VOLUNTEER_INDEX'
 
 Example: 
 
-* 'exportvolunteerxml 2' +
+* `exportvolunteerxml 2` +
 Exports the volunteer information at index 2 to the desktop. The XML filename uses the volunteer's name.
 
 
 [[command-volunteer-exportcsv]]
-==== Exporting volunteer information as CSV: exportcsv
+==== Exporting volunteer information as CSV: `exportcsv`
 
 Exports a volunteer's details as a CSV file. It follows the format of name:address:phone:email:birthday:ID:gender:tags and will have those as the header of the column.
 
-Format: 'exportcsv VOLUNTEER_INDEX'
+Format: `exportcsv VOLUNTEER_INDEX`
 * Exports the volunteer's information at the specified index.
 * VOLUNTEER_INDEX must be a positive integer.
 * If an invalid index is given (ie: a negative number, or one that does not exist), an error message saying invalid input will be displayed.
@@ -427,7 +427,7 @@ Format: 'exportcsv VOLUNTEER_INDEX'
 
 Example:
 
-* 'exportcsv 2' +
+* `exportcsv 2` +
 Exports the volunteer information at index 2 to the desktop. The CSV filename uses the volunteer's name.
 
 
@@ -559,11 +559,11 @@ image::command_event_delete_after.png[After delete, 300]
 --
 
 [[command-event-exportcsv]]
-==== Exporting event information as CSV: exportcsv
+==== Exporting event information as CSV: `exportcsv`
 
 Exports an event's details as a CSV file. It follows the format of name:startDate:startTime:endDate:endTime:Location:Description and will have those as the header of the column.
 
-Format: 'exportcsv EVENT_INDEX'
+Format: `exportcsv EVENT_INDEX`
 * Exports the event information at the specified index.
 * EVENT_INDEX must be a positive integer.
 * If an invalid index is given (ie: a negative number, or one that does not exist), an error message saying invalid input will be displayed.
@@ -571,16 +571,16 @@ Format: 'exportcsv EVENT_INDEX'
 
 Example:
 
-* 'exportcsv 2'
+* `exportcsv 2`
 Exports the event information at index 2 to the desktop. The CSV file uses the event's name.
 
 
 [[command-event-exporteventxml]]
-==== Exporting volunteer information as XML: exporteventxml
+==== Exporting volunteer information as XML: `exporteventxml`
 
 Exports information about an event, detailing the start date/time & end date/time.
 
-Format: 'exporteventxml EVENT_INDEX'
+Format: `exporteventxml EVENT_INDEX`
 
 * Exports the event's information at the specified index.
 * EVENT_INDEX must be a positive integer.
@@ -589,7 +589,7 @@ Format: 'exporteventxml EVENT_INDEX'
 
 Example: 
 
-* 'exporteventxml 2' +
+* `exporteventxml 2` +
 Exports the event information at index 2 to the desktop. The XML filename uses the event's name.
 
 
