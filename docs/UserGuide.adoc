@@ -237,6 +237,7 @@ Application will first display the 'volunteers' panel and you can change the pan
 
 === Volunteer Management
 
+// tag::command-volunteer-add[]
 [[command-volunteer-add]]
 ==== Registering new volunteer: `add`
 
@@ -271,7 +272,7 @@ Adds a volunteer with the following properties:
 |===
 .Output of `add`
 image::command_volunteer_add_after1.png[add command, 300]
-
+// end::command-volunteer-add[]
 
 * `add n/Betty Sue  g/f b/31-12-1995 p/81749272 e/Betty@gmail.com  a/Ang Mo Kio Block 62 t/Longtime t/Helpful`
 +
@@ -291,6 +292,7 @@ Adds a volunteer with the following properties:
 .Output of `add`
 image::command_volunteer_add_after2.png[add command, 300]
 
+// tag::command-volunteer-list[]
 [[command-volunteer-list]]
 ==== Listing all volunteers : `list`
 
@@ -301,8 +303,9 @@ The figure below shows the expected panel after executing the `list` command.
 
 .Output of `list`
 image::command_volunteer_list.png[list command, 300]
+// end::command-volunteer-list[]
 
-
+// tag::command-volunteer-edit[]
 [[command-volunteer-edit]]
 ==== Editing volunteers details : `edit`
 
@@ -331,8 +334,9 @@ image::command_volunteer_edit_before.png[Before edit, 300]
 .The targeted volunteer is updated to reflect the new values after entering the edit command
 image::command_volunteer_edit_after.png[After edit, 300]
 --
+// end::command-volunteer-edit[]
 
-
+// tag::command-volunteer-delete[]
 [[command-volunteer-delete]]
 ==== Deleting volunteer details : `delete`
 
@@ -353,7 +357,7 @@ image::command_volunteer_delete_before.png[Before delete, 300]
 .The targeted volunteer is deleted after entering the delete command
 image::command_volunteer_delete_after.png[After delete, 300]
 --
-
+// end::command-volunteer-delete[]
 
 [[command-volunteer-exportcert]]
 ==== Exporting volunteer certificate : `exportcert`
