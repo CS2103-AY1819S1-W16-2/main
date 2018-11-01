@@ -367,13 +367,13 @@ Resets the application to a clean state. The panel is also updated to reflect th
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_clear_before.png" alt="clear bef" width="800">
+<img src="images/command_clear_before.png" alt="clear bef" width="600">
 </div>
 <div class="title">Figure 2. Before clearing entries</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_clear_after.png" alt="clear aft" width="800">
+<img src="images/command_clear_after.png" alt="clear aft" width="600">
 </div>
 <div class="title">Figure 3. After clearing entries</div>
 </div>
@@ -444,13 +444,13 @@ Updates the panel to display the list of events.</p>
 <div class="content">
 <div class="imageblock left">
 <div class="content">
-<img src="images/command_switch_before.png" alt="switch bef" width="300">
+<img src="images/command_switch_before.png" alt="switch bef" width="200">
 </div>
 <div class="title">Figure 4. Before panel displaying volunteers</div>
 </div>
 <div class="imageblock left">
 <div class="content">
-<img src="images/command_switch_after.png" alt="switch aft" width="300">
+<img src="images/command_switch_after.png" alt="switch aft" width="200">
 </div>
 <div class="title">Figure 5. After panel displaying events</div>
 </div>
@@ -489,7 +489,7 @@ Format: <code>add n/NAME g/GENDER b/BIRTHDAY p/PHONE_NUMBER e/EMAIL a/ADDRESS [t
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_volunteer_add_before.png" alt="add command" width="300">
+<img src="images/command_volunteer_add_before.png" alt="add command" width="200">
 </div>
 <div class="title">Figure 6. Before adding a volunteer</div>
 </div>
@@ -543,7 +543,7 @@ Format: <code>add n/NAME g/GENDER b/BIRTHDAY p/PHONE_NUMBER e/EMAIL a/ADDRESS [t
 </table>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_volunteer_add_after1.png" alt="add command" width="300">
+<img src="images/command_volunteer_add_after1.png" alt="add command" width="200">
 </div>
 <div class="title">Figure 7. Output of <code>add</code></div>
 </div>
@@ -597,7 +597,7 @@ Format: <code>add n/NAME g/GENDER b/BIRTHDAY p/PHONE_NUMBER e/EMAIL a/ADDRESS [t
 </table>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_volunteer_add_after2.png" alt="add command" width="300">
+<img src="images/command_volunteer_add_after2.png" alt="add command" width="200">
 </div>
 <div class="title">Figure 8. Output of <code>add</code></div>
 </div>
@@ -616,7 +616,7 @@ Format: <code>list</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_volunteer_list.png" alt="list command" width="300">
+<img src="images/command_volunteer_list.png" alt="list command" width="200">
 </div>
 <div class="title">Figure 9. Output of <code>list</code></div>
 </div>
@@ -668,13 +668,13 @@ Edits the name of the volunteer at index 1</p>
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/command_volunteer_edit_before.png" alt="Before edit" width="300">
+<img src="images/command_volunteer_edit_before.png" alt="Before edit" width="200">
 </div>
 <div class="title">Figure 10. Before entering the edit command</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_volunteer_edit_after.png" alt="After edit" width="300">
+<img src="images/command_volunteer_edit_after.png" alt="After edit" width="200">
 </div>
 <div class="title">Figure 11. The targeted volunteer is updated to reflect the new values after entering the edit command</div>
 </div>
@@ -705,13 +705,13 @@ Deletes the details of the volunteer specified at index 1</p>
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/command_volunteer_delete_before.png" alt="Before delete" width="300">
+<img src="images/command_volunteer_delete_before.png" alt="Before delete" width="200">
 </div>
 <div class="title">Figure 12. The volunteer at index 1 is targeted before entering the delete command</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_volunteer_delete_after.png" alt="After delete" width="300">
+<img src="images/command_volunteer_delete_after.png" alt="After delete" width="200">
 </div>
 <div class="title">Figure 13. The targeted volunteer is deleted after entering the delete command</div>
 </div>
@@ -765,7 +765,8 @@ Deletes the details of the volunteer specified at index 1</p>
 <ul>
 <li>
 <p><code>exportcert 2</code><br>
-Exports PDF certificate of volunteer at specified index 2 to folder 'Volunteer Certs' in the current working directory, or directly to the Desktop.</p>
+Exports PDF certificate of volunteer at specified index 2 to folder 'Volunteer Certs' in the current working directory, or directly to the Desktop.
+A success message will also be displayed in the following form: 'Certificate exported for volunteer at &lt;INDEX&gt; to &lt;EXPORT FOLDER&gt;'.</p>
 </li>
 </ul>
 </div>
@@ -776,7 +777,7 @@ Exports PDF certificate of volunteer at specified index 2 to folder 'Volunteer C
 <div class="content">
 <img src="images/CurrentVolunteerCert.png" alt="CurrentVolunteerCert" width="600">
 </div>
-<div class="title">Figure 14. Current sample exported volunteer certificate</div>
+<div class="title">Figure 14. Current sample exported volunteer certificate [John Doe_1.pdf]</div>
 </div>
 <div class="paragraph">
 <p>Here is the intended final form of the exported certificate:</p>
@@ -786,6 +787,20 @@ Exports PDF certificate of volunteer at specified index 2 to folder 'Volunteer C
 <img src="images/FinalVolunteerCert.png" alt="FinalVolunteerCert" width="600">
 </div>
 <div class="title">Figure 15. Intended sample exported volunteer certificate</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To avoid exported file name clashes for volunteers with the same name, we have appended the volunteer ID to the filename as well. Exported file names will have the format '&lt;VOLUNTEER NAME&gt;_&lt;VOLUNTEER ID&gt;.pdf' (E.g. John Doe_1.pdf)</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -824,7 +839,7 @@ Exports PDF certificate of volunteer at specified index 2 to folder 'Volunteer C
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_event_add_before.png" alt="add command" width="300">
+<img src="images/command_event_add_before.png" alt="add command" width="200">
 </div>
 <div class="title">Figure 16. Before adding an event</div>
 </div>
@@ -882,7 +897,7 @@ Exports PDF certificate of volunteer at specified index 2 to folder 'Volunteer C
 </table>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_event_add_after1.png" alt="add command" width="300">
+<img src="images/command_event_add_after1.png" alt="add command" width="200">
 </div>
 <div class="title">Figure 17. Output of <code>add</code></div>
 </div>
@@ -941,7 +956,7 @@ t/charity</code></p>
 </table>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_event_add_after2.png" alt="add command" width="300">
+<img src="images/command_event_add_after2.png" alt="add command" width="200">
 </div>
 <div class="title">Figure 18. Output of <code>add</code></div>
 </div>
@@ -961,7 +976,7 @@ The figure below shows the expected panel after executing the <code>list</code> 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_event_list.png" alt="list command" width="300">
+<img src="images/command_event_list.png" alt="list command" width="200">
 </div>
 <div class="title">Figure 19. Output of <code>list</code></div>
 </div>
@@ -1015,13 +1030,13 @@ Edits the name of event at index 1 and removes all tags.</p>
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/command_event_edit_before.png" alt="Before edit" width="300">
+<img src="images/command_event_edit_before.png" alt="Before edit" width="200">
 </div>
 <div class="title">Figure 20. Before entering the edit command</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_event_edit_after.png" alt="After edit" width="300">
+<img src="images/command_event_edit_after.png" alt="After edit" width="200">
 </div>
 <div class="title">Figure 21. The targeted event is updated to reflect the new values after entering the edit command</div>
 </div>
@@ -1054,13 +1069,13 @@ Deletes the details of the event specified at index 2.</p>
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/command_event_delete_before.png" alt="Before delete" width="300">
+<img src="images/command_event_delete_before.png" alt="Before delete" width="200">
 </div>
 <div class="title">Figure 22. The event at index 2 is targeted before entering the delete command</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_event_delete_after.png" alt="After delete" width="300">
+<img src="images/command_event_delete_after.png" alt="After delete" width="200">
 </div>
 <div class="title">Figure 23. The targeted event is deleted after entering the delete command</div>
 </div>
@@ -1108,7 +1123,7 @@ View the list of volunteers assigned to event at index 1.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_record_manage_eventIndex.png" alt="view events" width="300">
+<img src="images/command_record_manage_eventIndex.png" alt="view events" width="200">
 </div>
 <div class="title">Figure 24. Panel of events</div>
 </div>
@@ -1118,7 +1133,7 @@ The circled numbers indicate the EVENT_INDEX that you have to enter.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_manage_view.png" alt="manage" width="800">
+<img src="images/command_manage_view.png" alt="manage" width="600">
 </div>
 <div class="title">Figure 25. Managing the selected event</div>
 </div>
@@ -1169,7 +1184,7 @@ The circled numbers indicate the EVENT_INDEX that you have to enter.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_record_add_volunteerIndex.png" alt="volunteer index" width="300">
+<img src="images/command_record_add_volunteerIndex.png" alt="volunteer index" width="200">
 </div>
 <div class="title">Figure 26. The VOLUNTEER_INDEX</div>
 </div>
@@ -1181,7 +1196,7 @@ The circled numbers indicate the EVENT_INDEX that you have to enter.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_record_add.png" alt="add command" width="800">
+<img src="images/command_record_add.png" alt="add command" width="600">
 </div>
 <div class="title">Figure 27. Before adding a volunteer</div>
 </div>
@@ -1199,7 +1214,7 @@ Expected display box is shown in the figure below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_record_add_after1.png" alt="add command" width="800">
+<img src="images/command_record_add_after1.png" alt="add command" width="600">
 </div>
 <div class="title">Figure 28. Output of <code>add 1</code></div>
 </div>
@@ -1214,7 +1229,7 @@ Expected display box is shown in the figure below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_record_add_after2.png" alt="add command" width="800">
+<img src="images/command_record_add_after2.png" alt="add command" width="600">
 </div>
 <div class="title">Figure 29. Output of <code>add 1 h/5 r/Driver</code></div>
 </div>
@@ -1243,7 +1258,7 @@ Expected display box is shown in the figure below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_record_edit_volunteerIndex.png" alt="volunteer index" width="800">
+<img src="images/command_record_edit_volunteerIndex.png" alt="volunteer index" width="600">
 </div>
 <div class="title">Figure 30. The VOLUNTEER_INDEX</div>
 </div>
@@ -1263,13 +1278,13 @@ Updates amount of hours volunteered for volunteer at index 3 to 5 hours with rem
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_record_edit.png" alt="edit command" width="800">
+<img src="images/command_record_edit.png" alt="edit command" width="600">
 </div>
 <div class="title">Figure 31. Before updating the volunteer record</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_record_edit_after.png" alt="edit command" width="800">
+<img src="images/command_record_edit_after.png" alt="edit command" width="600">
 </div>
 <div class="title">Figure 32. Output of <code>edit 2 h/5 r/Emcee</code></div>
 </div>
@@ -1298,7 +1313,7 @@ Updates amount of hours volunteered for volunteer at index 3 to 5 hours with rem
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_record_edit_volunteerIndex.png" alt="delete record" width="800">
+<img src="images/command_record_edit_volunteerIndex.png" alt="delete record" width="600">
 </div>
 <div class="title">Figure 33. The VOLUNTEER_INDEX</div>
 </div>
@@ -1318,13 +1333,13 @@ Deletes the volunteer record at index 1.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_record_edit_after.png" alt="delete command" width="800">
+<img src="images/command_record_edit_after.png" alt="delete command" width="600">
 </div>
 <div class="title">Figure 34. Before deleting the volunteer record</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/command_record_delete.png" alt="delete command" width="800">
+<img src="images/command_record_delete.png" alt="delete command" width="600">
 </div>
 <div class="title">Figure 35. Output of <code>delete 1</code></div>
 </div>
@@ -1586,4 +1601,4 @@ There is no need to save manually.</p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous SocialCare folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 12:59:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 05:24:00 UTC</div></div></div></body></html>
