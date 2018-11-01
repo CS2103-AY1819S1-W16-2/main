@@ -4,22 +4,22 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.ExportVolunteerCommand;
+import seedu.address.logic.commands.ExportVolunteerXMLCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
- * Parses input arguments and creates a new {@code ExportCertCommand} object
+ * Parses input arguments and creates a new {@code ExportVolunteerXMLCommand} object
  */
-public class ExportVolunteerCommandParser implements Parser<ExportVolunteerCommand> {
+public class ExportVolunteerXMLCommandParser implements Parser<ExportVolunteerXMLCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the {@code ExportCertCommand}
-     * and returns a {@code ExportCertCommand} object for execution.
+     * Parses the given {@code String} of arguments in the context of the {@code ExportVolunteerXMLCommand}
+     * and returns a {@code ExportVolunteerXMLCommand} object for execution.
      * @param userInput as a {@code String}
-     * @return ExportCertCommand object
+     * @return ExportVolunteerXMLCommand object
      * @throws ParseException if the user input does not abide by the expected format
      */
-    public ExportVolunteerCommand parse(String userInput) throws ParseException {
+    public ExportVolunteerXMLCommand parse(String userInput) throws ParseException {
         requireNonNull(userInput);
 
         Index index;
@@ -27,9 +27,9 @@ public class ExportVolunteerCommandParser implements Parser<ExportVolunteerComma
             index = ParserUtil.parseIndex(userInput);
         } catch (ParseException pe) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                    ExportVolunteerCommand.MESSAGE_USAGE), pe);
+                    ExportVolunteerXMLCommand.MESSAGE_USAGE), pe);
         }
 
-        return new ExportVolunteerCommand(index);
+        return new ExportVolunteerXMLCommand(index);
     }
 }

@@ -30,7 +30,7 @@ import static java.util.Objects.requireNonNull;
 /*
  * Exports a person's volunteer information from SocialCare
  */
-public class ExportVolunteerCommand extends Command {
+public class ExportVolunteerXMLCommand extends Command {
 
     public static final String COMMAND_WORD = "exportvolunteer";
 
@@ -49,7 +49,7 @@ public class ExportVolunteerCommand extends Command {
     /**
      * @param index of volunteer or event in the filtered list
      */
-    public ExportVolunteerCommand(Index index) {
+    public ExportVolunteerXMLCommand(Index index) {
         requireNonNull(index);
         this.index = index;
     }

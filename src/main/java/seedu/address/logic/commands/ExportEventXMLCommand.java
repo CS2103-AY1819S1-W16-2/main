@@ -25,7 +25,7 @@ import seedu.address.model.event.Event;
 import static java.util.Objects.requireNonNull;
 
 
-public class ExportEventCommand extends Command{
+public class ExportEventXMLCommand extends Command{
 
     public static final String COMMAND_WORD = "exportevent";
 
@@ -44,7 +44,7 @@ public class ExportEventCommand extends Command{
     /**
      * @param index of volunteer or event in the filtered list
      */
-    public ExportEventCommand(Index index) {
+    public ExportEventXMLCommand(Index index) {
         requireNonNull(index);
         this.index = index;
     }
