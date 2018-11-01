@@ -1,25 +1,25 @@
 package seedu.address.logic.parser;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.ExportEventXMLCommand;
+import seedu.address.logic.commands.ExportEventXmlCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 /**
- * Parses input arguments and creates a new {@code ExportEventXMLCommand} object
+ * Parses input arguments and creates a new {@code ExportEventXmlCommand} object
  */
-public class ExportEventXMLCommandParser implements Parser<ExportEventXMLCommand> {
+public class ExportEventXMLCommandParser implements Parser<ExportEventXmlCommand> {
 
         /**
-         * Parses the given {@code String} of arguments in the context of the {@code ExportEventXMLCommand}
-         * and returns a {@code ExportEventXMLCommand} object for execution.
+         * Parses the given {@code String} of arguments in the context of the {@code ExportEventXmlCommand}
+         * and returns a {@code ExportEventXmlCommand} object for execution.
          * @param userInput as a {@code String}
-         * @return ExportEventXMLCommand object
+         * @return ExportEventXmlCommand object
          * @throws ParseException if the user input does not abide by the expected format
          */
-        public ExportEventXMLCommand parse(String userInput) throws ParseException {
+        public ExportEventXmlCommand parse(String userInput) throws ParseException {
             requireNonNull(userInput);
 
             Index index;
@@ -27,10 +27,10 @@ public class ExportEventXMLCommandParser implements Parser<ExportEventXMLCommand
                 index = ParserUtil.parseIndex(userInput);
             } catch (ParseException pe) {
                 throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                        ExportEventXMLCommand.MESSAGE_USAGE), pe);
+                        ExportEventXmlCommand.MESSAGE_USAGE), pe);
             }
 
-            return new ExportEventXMLCommand(index);
+            return new ExportEventXmlCommand(index);
         }
 
 

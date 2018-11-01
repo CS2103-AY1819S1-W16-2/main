@@ -1,10 +1,12 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.File;
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -14,7 +16,6 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.CommandHistory;
@@ -22,12 +23,12 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.event.Event;
 
-import static java.util.Objects.requireNonNull;
+/**
+ * Export an Event information as an XML
+ */
+public class ExportEventXmlCommand extends Command {
 
-
-public class ExportEventXMLCommand extends Command{
-
-    public static final String COMMAND_WORD = "exportevent";
+    public static final String COMMAND_WORD = "exporteventxml";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": exports an XML file of the event "
             + "given the file path to the xml file\n"
@@ -44,7 +45,7 @@ public class ExportEventXMLCommand extends Command{
     /**
      * @param index of volunteer or event in the filtered list
      */
-    public ExportEventXMLCommand(Index index) {
+    public ExportEventXmlCommand(Index index) {
         requireNonNull(index);
         this.index = index;
     }
@@ -63,7 +64,7 @@ public class ExportEventXMLCommand extends Command{
         Event selectedEvent = list.get(index.getZeroBased());
 
         try {
-            createEventXML(model, selectedEvent);
+            createEventXml(model, selectedEvent);
         } catch (Exception e) {
             throw new CommandException(MESSAGE_EXPORT_EVENT_FAILED);
         }
@@ -71,7 +72,13 @@ public class ExportEventXMLCommand extends Command{
         return new CommandResult(MESSAGE_EXPORT_EVENT_SUCCESS);
     }
 
-        private void createEventXML (Model model, Event event) throws Exception {
+    /**
+     * Helper method to do the file creation and data writing
+     * @param model model to take the entire list
+     * @param event the specified event given on index
+     * @throws Exception - any given internal errors are thrown here
+     */
+        private void createEventXml (Model model, Event event) throws Exception {
             //setting up the document builders
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

@@ -1,10 +1,12 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.File;
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -13,7 +15,6 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
@@ -25,14 +26,12 @@ import seedu.address.model.event.EventId;
 import seedu.address.model.record.Record;
 import seedu.address.model.volunteer.Volunteer;
 
-import static java.util.Objects.requireNonNull;
-
-/*
+/**
  * Exports a person's volunteer information from SocialCare
  */
-public class ExportVolunteerXMLCommand extends Command {
+public class ExportVolunteerXmlCommand extends Command {
 
-    public static final String COMMAND_WORD = "exportvolunteer";
+    public static final String COMMAND_WORD = "exportvolunteerxml";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Exports an XML file of the volunteer "
             + "the specified index in the displayed volunteer list.\n"
@@ -49,7 +48,7 @@ public class ExportVolunteerXMLCommand extends Command {
     /**
      * @param index of volunteer or event in the filtered list
      */
-    public ExportVolunteerXMLCommand(Index index) {
+    public ExportVolunteerXmlCommand(Index index) {
         requireNonNull(index);
         this.index = index;
     }
@@ -97,21 +96,22 @@ public class ExportVolunteerXMLCommand extends Command {
         nameAttr.setValue(volunteer.getName().toString());
         rootElement.setAttributeNode(nameAttr);
 
+        Attr phoneAttr = doc.createAttribute("Phone");
+        phoneAttr.setValue(volunteer.getPhone().toString());
+        rootElement.setAttributeNode(phoneAttr);
+
         Attr addressAttr = doc.createAttribute("Address");
         addressAttr.setValue(volunteer.getAddress().toString());
         rootElement.setAttributeNode(addressAttr);
-
-        Attr bdayAttr = doc.createAttribute("Birthday");
-        bdayAttr.setValue(volunteer.getBirthday().toString());
-        rootElement.setAttributeNode(bdayAttr);
 
         Attr emailAttr = doc.createAttribute("Email");
         emailAttr.setValue(volunteer.getEmail().toString());
         rootElement.setAttributeNode(emailAttr);
 
-        Attr phoneAttr = doc.createAttribute("Phone");
-        phoneAttr.setValue(volunteer.getPhone().toString());
-        rootElement.setAttributeNode(phoneAttr);
+
+        Attr bdayAttr = doc.createAttribute("Birthday");
+        bdayAttr.setValue(volunteer.getBirthday().toString());
+        rootElement.setAttributeNode(bdayAttr);
 
         Attr genderAttr = doc.createAttribute("Gender");
         genderAttr.setValue(volunteer.getGender().toString());
@@ -131,7 +131,7 @@ public class ExportVolunteerXMLCommand extends Command {
         List<Record> eventRecords = model.getFilteredRecordList().filtered((x) -> x.getVolunteerId()
                 .equals(volunteer.getVolunteerId()));
 
-        for (int i=1;i<=eventRecords.size();i++) {
+        for (int i = 1; i <= eventRecords.size(); i++) {
             //take note of 0 & 1 indexing difference
             Element element = doc.createElement("EVENT" + Integer.toString(i));
             Record r = eventRecords.get(i-1);

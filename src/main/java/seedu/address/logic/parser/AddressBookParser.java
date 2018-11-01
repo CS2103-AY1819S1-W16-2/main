@@ -106,8 +106,11 @@ public class AddressBookParser {
         case ManageCommand.COMMAND_WORD:
             return new ManageCommandParser().parse(arguments);
 
-        case ExportEventXMLCommand.COMMAND_WORD:
+        case ExportEventXmlCommand.COMMAND_WORD:
             return new ExportEventXMLCommandParser().parse(arguments);
+
+        case ExportVolunteerCsvCommand.COMMAND_WORD:
+                return new ExportVolunteerCsvCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
@@ -143,11 +146,11 @@ public class AddressBookParser {
         case ExportCertCommand.COMMAND_WORD:
             return new ExportCertCommandParser().parse(arguments);
 
-        case ExportVolunteerXMLCommand.COMMAND_WORD:
-            return new ExportVolunteerXMLCommandParser().parse(arguments);
+        case ExportVolunteerXmlCommand.COMMAND_WORD:
+            return new ExportVolunteerXmlCommandParser().parse(arguments);
 
             default:
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
 
