@@ -9,7 +9,7 @@
 
 == Overview
 
-This Project Portfolio details my contribution to the SocialCare application. SocialCare is a volunteer management system that allows Social Welfare Organisations to better manage data on their volunteers & events through a Command Line Interface (CLI). 
+This Project Portfolio details my contribution to the SocialCare application. SocialCare is a volunteer management system that allows Social Welfare Organisations to better manage data on their volunteers & events through a Command Line Interface (CLI) using a GUI created with JavaFX. It is written in Java and has about 10kLoC.
 
 The application has a basic Create, Read, Update, Delete (CRUD) function for information about volunteers & events, where the user can switch context at managing either from the volunteer's perspective (CRUD on events participated by a volunteer) or from an event manager's perspective (CRUD on volunteer participation for an event). There is also a feature to print certificates of participation for volunteers on the events they have contributed to, and to import/export the dataset as CSV files.
 
