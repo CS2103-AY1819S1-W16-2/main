@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Thangavel Sharan - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">SocialCare</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-W16-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Thangavel Sharan - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-socialcare"><a class="link" href="#project-socialcare">PROJECT: SocialCare</a></h2>
+<h2 id="project-em-socialcare-em"><a class="link" href="#project-em-socialcare-em">PROJECT: <em>SocialCare</em></a></h2>
 <div class="sectionbody">
 <hr>
 </div>
@@ -10,7 +10,40 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>SocialCare morphs the given AddressBook - Level 4 application into a volunteer management system that allows Social Welfare Organisations to better manage their volunteers &amp; events, and gain further statistical insights from the data. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>This project portfolio page serves to document my contributions to <em>SocialCare</em>, a software engineering project that was
+undertaken as part of the National University of Singapore (NUS) School of Computing&#8217;s beginner Software Engineering
+module, CS2103T. More information on this module can be found
+<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-website/admin/index.html">here</a>.</p>
+</div>
+<div class="paragraph">
+<p><em>SocialCare</em> is an <strong>event and volunteer management system</strong> for social welfare organisations, which runs on desktops.
+The user interacts with it using the Command Line Interface (CLI), and it has a Graphical User Interface (GUI)
+created using <a href="https://docs.oracle.com/javafx/2/overview/jfxpub-overview.htm">JavaFX</a>. The application is written in Java,
+and has about 10,000 lines of code.</p>
+</div>
+<div class="paragraph">
+<p>Key Features of <em>SocialCare</em>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add, remove and store volunteers and events.</p>
+</li>
+<li>
+<p>Assign volunteers to events.</p>
+</li>
+<li>
+<p>Create event records for each volunteer consisting of the event and volunteer IDs, hours contributed and related
+remarks.</p>
+</li>
+<li>
+<p>Export a PDF certificate detailing a volunteer’s involvement with the organisation (event records, contributed hours).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Through the use of the CLI, <em>SocialCare</em> enables the above functionalities to be executed faster than a typical
+mouse/GUI driven application.</p>
 </div>
 </div>
 </div>
@@ -20,63 +53,49 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: I added <strong>the ability to export volunteer certificates in PDF format.</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p><em>What it does</em>: This feature allows the user to export a volunteer’s event records and contributed hours in the form
+of a PDF certificate.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p><em>Justification</em>: This feature improves the product significantly as it automates a task that is currently done
+largely manually, and offers the user a way to access information from outside of the application as well (via portable
+and printable PDF files).</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+<p><em>Highlights</em>: This enhancement involved an in-depth analysis of available external open source libraries, and
+meticulous design of the exported PDF document.</p>
 </li>
 <li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p><em>Credits</em>: This feature was developed with the use of <a href="https://pdfbox.apache.org/team.html">Apache PDFBox</a>, which
+provides the functionality to create and write to PDF files.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>: I added the <strong>total volunteer count to the status bar</strong>. This enhancement is in line with our
+application’s intention to provide the user with easy access to useful information pertaining to volunteers.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: Here is a <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=sharan8">link</a>
+to my code on the Project Code Dashboard.</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p>Documentation:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Revised the introduction sections of the
+<a href="https://github.com/CS2103-AY1819S1-W16-2/main/blob/master/README.adoc">README</a> and
+<a href="https://github.com/CS2103-AY1819S1-W16-2/main/blob/master/docs/DeveloperGuide.adoc">Developer Guide</a> (<a href="https://github.com/CS2103-AY1819S1-W16-2/main/pull/109">#109</a>)</p>
 </li>
 </ul>
 </div>
@@ -86,16 +105,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>Reviewed PRs (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S1-W16-2/main/pull/92">#92</a>, <a href="https://github.com/CS2103-AY1819S1-W16-2/main/pull/107">#107</a>, <a href="https://github.com/CS2103-AY1819S1-W16-2/main/pull/114">#114</a>, <a href="https://github.com/CS2103-AY1819S1-W16-2/main/pull/232">#232</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
+<p>Involved forum members in the resolution of a design consideration: <a href="https://github.com/nus-cs2103-AY1819S1/forum/issues/114">#114</a></p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
+<p>Shared a personal learning point with forum members: <a href="https://github.com/nus-cs2103-AY1819S1/forum/issues/143">#143</a></p>
 </li>
 <li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+<p>Reported bugs and suggestions for other teams: To be updated.</p>
+</li>
+<li>
+<p>Some parts of the <code>exportcert</code> feature I added inspired the implementation of the import/export csv/xml feature.</p>
 </li>
 </ul>
 </div>
@@ -105,10 +127,24 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
+<p>Integrated a third party library (<a href="https://pdfbox.apache.org/index.html">Apache PDFBox</a>) to the project
+(<a href="https://github.com/CS2103-AY1819S1-W16-2/main/pull/161">#161</a>).</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Project conceptualisation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Set up and managed a shared
+<a href="https://docs.google.com/document/d/19iV64xK0EwaV8kjMaP72P1G7iGKKXtEX2my5M-QowKc/edit?usp=sharing">Brainstorming Canvas</a>
+to brainstorm on product morphing ideas using the 'Target User Profile-Problem-Value Proposition' framework.</p>
+</li>
+<li>
+<p>Conceptualised and validated the idea for <em>SocialCare</em> through conversing with staff from 2
+social welfare organisations that I have worked with in the past.</p>
 </li>
 </ul>
 </div>
@@ -117,9 +153,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -132,13 +165,95 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting
+end-users.</em></p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h4>
-
+<h4 id="command-volunteer-exportcert"><a class="link" href="#command-volunteer-exportcert">Exporting volunteer certificate : <code>exportcert</code></a></h4>
+<div class="paragraph">
+<p>Exports a PDF document to a folder in the user&#8217;s current working directory or directly to the desktop, detailing the volunteer&#8217;s involvement with the organisation. This document includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Title: 'Certificate of Recognition'</p>
+</li>
+<li>
+<p>Date of export</p>
+</li>
+<li>
+<p>Volunteer name</p>
+</li>
+<li>
+<p>Volunteer ID</p>
+</li>
+<li>
+<p>List of events involved in - Event name, hours contributed, event start and end dates</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Format: <code>exportcert VOLUNTEER_INDEX</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Exports PDF certificate for the volunteer at specified <code>VOLUNTEER INDEX</code></p>
+</li>
+<li>
+<p><code>VOLUNTEER INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>If the index given exceeds the number of volunteers in the displayed volunteer list, the message 'The volunteer index provided is invalid.' will be shown.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example(s):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>exportcert 2</code><br>
+Exports PDF certificate of volunteer at specified index 2 to folder 'Certs' in the current working directory, or directly to the Desktop.
+A success message will also be displayed in the following form: 'Certificate exported for volunteer at INDEX &lt;INDEX&gt; to &lt;EXPORT PATH&gt;'.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here is what the exported certificate currently looks like:</p>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="../images/CurrentVolunteerCert.png" alt="CurrentVolunteerCert" width="600">
+</div>
+<div class="title">Figure 1. Current sample exported volunteer certificate [John Doe_1.pdf]</div>
+</div>
+<div class="paragraph">
+<p>Here is the intended final form of the exported certificate:</p>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="../images/FinalVolunteerCert.png" alt="FinalVolunteerCert" width="600">
+</div>
+<div class="title">Figure 2. Intended sample exported volunteer certificate</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To avoid exported file name clashes for volunteers with the same name, we have appended the volunteer ID to the filename as well. Exported file names will have the format '&lt;VOLUNTEER NAME&gt;_&lt;VOLUNTEER ID&gt;.pdf' (E.g. John Doe_1.pdf)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -151,152 +266,148 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical
+documentation and the technical depth of my contributions to the project.</em></p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h4>
-<div class="sect4">
-<h5 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h5>
+<h4 id="export-volunteer-certificate"><a class="link" href="#export-volunteer-certificate">Export Volunteer Certificate</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
+<p>The <code>exportcert</code> command enables the volunteer manager to export a PDF document detailing a volunteer&#8217;s involvement with the organisation.
+This is only possible when in the 'volunteer' context. The information included in the certificate are as follows:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
+<p>Title: 'Certificate of Recognition'</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
+<p>Date of export</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
+<p>Volunteer name</p>
+</li>
+<li>
+<p>Volunteer ID</p>
+</li>
+<li>
+<p>List of events involved in - Event name, hours contributed, event start and event end dates</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
+<p>Currently, the certificate will be exported to either of these two locations:</p>
 </div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th volunteer in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new volunteer. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the volunteer was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following figure shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
-<div class="title">Figure 1. Sequence diagram of undo operation</div>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The following figure summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
-</div>
-<div class="title">Figure 2. Activity diagram of new command execution</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h5>
-<div class="sect5">
-<h6 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Save the entire address book.</p>
+<p>Folder named 'Certs' in the user&#8217;s current working directory (next to jar file)</p>
+</li>
+<li>
+<p>Direct to Desktop (if permission not allowed for the above)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This is what the exported PDF certificate currently looks like:</p>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="../images/CurrentVolunteerCert.png" alt="CurrentVolunteerCert" width="600">
+</div>
+<div class="title">Figure 3. Current form of exported volunteer certificate</div>
+</div>
+<div class="sect4">
+<h5 id="implementation"><a class="link" href="#implementation">Implementation</a></h5>
+<div class="paragraph">
+<p>The following steps were involved in this feature&#8217;s implementation:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Support for accepting <code>exportcert</code> command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added an ExportCertCommand class that extends Command.</p>
+</li>
+<li>
+<p>Modified AddressBookParser class to accept an ExportCertCommand.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Support for accepting arguments as part of the command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Modified ExportCertCommand class to take in an Index.</p>
+</li>
+<li>
+<p>Added an ExportCertCommandParser class that parses the Index argument.</p>
+</li>
+<li>
+<p>Modified the AddressBookParser to use the ExportCertCommandParser.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Retrieve the right volunteer based on the given Index.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Interact with the model to retrieve the filtered volunteer list.</p>
+</li>
+<li>
+<p>Get the Volunteer at the specified Index.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Retrieve information on the events that this volunteer has been involved in, if any.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Interact with the model to get the filtered record list, and filter the record list further to find the records with the volunteer&#8217;s ID.</p>
+</li>
+<li>
+<p>Retrieve the event IDs from the relevant filtered records, along with the hours contributed.</p>
+</li>
+<li>
+<p>Get the Event that corresponds to the event ID, and retrieve its name, startDate and endDate for input into the certificate.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use Apache PDFBox to create and export a volunteer certificate with the information retrieved.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Involves the creation of a new <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/index.html?org/apache/pdfbox/pdmodel/PDDocument.html">PDDocument</a>,
+with a <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/pdmodel/PDPage.html">PDPage</a> to write the content to.</p>
+</li>
+<li>
+<p>A <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/pdmodel/PDPageContentStream.html">PDPageContentStream</a> is then used to write the information to a page content stream.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-medium-of-presentation"><a class="link" href="#aspect-medium-of-presentation">Aspect: Medium of presentation</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Export as PDF</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -305,17 +416,17 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation is easy.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exports volunteer details in a convenient format for immediate use and distribution.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">May have performance issues in terms of memory usage.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PDF template has to be preset within the application.</p></td>
 </tr>
 </tbody>
 </table>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 2:</strong> Display volunteer data in a window within the application</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -324,11 +435,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the volunteer manager flexibility as to what to do with the volunteer details. This could include manually inputting it into an existing certificate creation application, or a document template.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Must ensure that the implementation of each individual command are correct.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires more manual work on the volunteer manager&#8217;s side, especially when the process can be automated to enhance his/her productivity. Certificate templates are also infrequently updated, and thus the costs in terms of efficiency outweigh the benefits in terms of flexibility.</p></td>
 </tr>
 </tbody>
 </table>
@@ -337,11 +448,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect5">
-<h6 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h6>
+<h6 id="aspect-choice-of-pdf-creation-tool"><a class="link" href="#aspect-choice-of-pdf-creation-tool">Aspect: Choice of PDF creation tool</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
+<p><strong>Alternative 1 (current choice):</strong> Apache PDFBox</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -350,17 +461,17 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open source, offers more specific functionality for PDFs than Apache FOP, and covers all of the pdf creation and manipulation functionality required for this feature.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not the most efficient for creating PDFs (refer to <a href="http://abhishekkumararya.blogspot.com/2013/09/comparison-of-java-based-pdf-generation.html">this comparison study</a>).</p></td>
 </tr>
 </tbody>
 </table>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
+<p><strong>Alternative 2:</strong> Apache FOP</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -369,11 +480,120 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">We do not need to maintain a separate list, and just reuse what is already in the codebase.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open source, allows for conversion and formatting of XML data to PDF.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resource intensive, not the most efficient for PDF creation, and lacks features such as updating and merging PDFs.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> iText</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fastest of the lot for PDF generation (refer to <a href="http://abhishekkumararya.blogspot.com/2013/09/comparison-of-java-based-pdf-generation.html">this comparison study</a>).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Now only available as a free trial, and requires a license for extended use.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="aspect-choice-of-additional-details-for-identifying-volunteer-from-certificate"><a class="link" href="#aspect-choice-of-additional-details-for-identifying-volunteer-from-certificate">Aspect: Choice of additional details for identifying volunteer from certificate</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use Volunteer&#8217;s NRIC</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Is unique to each volunteer and can be recovered easily, given the volunteer&#8217;s name or other personal information. It also adds credibility to the exported volunteer certificate.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires more space as each NRIC can be represented as string of length 9 or a 7-digit integer.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use a Volunteer ID</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shorter than NRIC and still serves the purpose, and can be auto-incremented.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hard to recover, even if additional information about the volunteer is provided. Would also be meaningless to a third person to whom the certificate is presented for verification purposes.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="aspect-choice-of-export-location"><a class="link" href="#aspect-choice-of-export-location">Aspect: Choice of export location</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create a folder in the user&#8217;s current working directory</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Putting the files relative to where the app is allows the user to locate, manage and access the exports easily as this is a portable app. The app jar and the exported files can be shifted to different locations together easily as well.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user would have to navigate to this directory if he/she wishes to access the files independent of using the application.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2 (also part of current choice, if no permission for 1):</strong> Export to the user&#8217;s Desktop</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to access files when not using the application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As it is a portable app, it may be cumbersome to keep navigating to the Desktop to access the exports when using the application. It also becomes harder to move the app jar and exports together from place to place.</p></td>
 </tr>
 </tbody>
 </table>
@@ -384,13 +604,4 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 15:08:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 15:12:59 UTC</div></div></div></body></html>
