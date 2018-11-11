@@ -1390,8 +1390,8 @@ Expected display box is shown in the figure below.</p>
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="Implementation-Switch"><a class="link" href="#Implementation-Switch">7.1. Switch command</a></h4>
+<div class="sect2">
+<h3 id="Implementation-Switch"><a class="link" href="#Implementation-Switch">7.1. Switch command</a></h3>
 <div class="paragraph">
 <p>The <code>switch</code> command is used to switch the context between 'volunteer' and 'event'.</p>
 </div>
@@ -1421,6 +1421,22 @@ e: 'event' context
 <p>The <code>switch</code> command updates the context found in <code>ModelManager</code> before raising the context change event to update the UI.</p>
 </div>
 <div class="paragraph">
+<p>In addition to updating the context, the <code>switch</code> command also does the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Clear all predicates for volunteer, events and record lists.</p>
+</li>
+<li>
+<p>Resets the state pointer (for undo/redo functions).</p>
+</li>
+<li>
+<p>Raise a <code>ContextChangeEvent</code> to update the UI.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p>The figure below is the sequence diagram to show how the <code>switch</code> command works when switching from volunteer to event context.</p>
 </div>
 <div class="imageblock">
@@ -1428,6 +1444,29 @@ e: 'event' context
 <img src="../images/command_switch_sd.png" alt="switch SD" width="800">
 </div>
 <div class="title">Figure 36. Simplified sequence diagram of switch command</div>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows what the <code>switch</code> command does upon execution:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Java"><span class="directive">public</span> <span class="type">class</span> <span class="class">SwitchCommand</span> <span class="directive">extends</span> Command {
+    <span class="comment">//...</span>
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute(Model model, CommandHistory history) {
+        requireNonNull(model);
+
+        model.setCurrentContext(contextId);
+        model.updateFilteredVolunteerList(Model.PREDICATE_SHOW_ALL_VOLUNTEERS);
+        model.updateFilteredEventList(Model.PREDICATE_SHOW_ALL_EVENTS);
+        model.updateFilteredRecordList(Model.PREDICATE_SHOW_ALL_RECORDS);
+        model.resetStatePointer();
+
+        EventsCenter.getInstance().post(<span class="keyword">new</span> ContextChangeEvent(contextId));
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(<span class="predefined-type">String</span>.format(MESSAGE_SUCCESS, model.getContextName()));
+    }
+}</code></pre>
+</div>
 </div>
 </div>
 <div class="sect4">
@@ -1479,8 +1518,8 @@ e: 'event' context
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="Implementation-Manage"><a class="link" href="#Implementation-Manage">7.2. Manage command</a></h4>
+<div class="sect2">
+<h3 id="Implementation-Manage"><a class="link" href="#Implementation-Manage">7.2. Manage command</a></h3>
 <div class="paragraph">
 <p>The <code>manage</code> command is used in the 'event' context to manage the volunteering records for an event.<br></p>
 </div>
@@ -1507,6 +1546,9 @@ e: 'event' context
 <p>Filter the existing records by the selected event.</p>
 </li>
 <li>
+<p>Resets the state pointer (for undo/redo functions).</p>
+</li>
+<li>
 <p>Raise a <code>RecordChangeEvent</code> to set the selected event.</p>
 </li>
 <li>
@@ -1522,6 +1564,45 @@ e: 'event' context
 <img src="../images/command_manage_sd.png" alt="manage SD" width="800">
 </div>
 <div class="title">Figure 37. Simplified sequence diagram for manage command</div>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows what the <code>manage</code> command does upon execution:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ManageCommand</span> <span class="directive">extends</span> Command {
+    <span class="comment">//...</span>
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute(Model model, CommandHistory history) <span class="directive">throws</span> CommandException {
+        requireNonNull(model);
+
+        <span class="predefined-type">List</span>&lt;<span class="predefined-type">Event</span>&gt; filteredEventList = model.getFilteredEventList();
+        model.updateFilteredVolunteerList(PREDICATE_SHOW_ALL_VOLUNTEERS);
+
+        <span class="keyword">if</span> (targetIndex.getZeroBased() &gt;= filteredEventList.size()) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(Messages.MESSAGE_INVALID_EVENT_DISPLAYED_INDEX);
+        }
+
+        model.switchToRecordContext();
+        model.setSelectedEvent(filteredEventList.get(targetIndex.getZeroBased()));
+        model.updateFilteredRecordList(<span class="keyword">new</span> RecordContainsEventIdPredicate(
+                filteredEventList.get(targetIndex.getZeroBased()).getEventId()
+        ));
+        model.resetStatePointer();
+
+
+        EventsCenter.getInstance().post(<span class="keyword">new</span> RecordChangeEvent(
+                filteredEventList.get(targetIndex.getZeroBased())));
+        EventsCenter.getInstance().post(<span class="keyword">new</span> ContextChangeEvent(model.getContextId()));
+
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(<span class="predefined-type">String</span>.format(MESSAGE_MANAGE_EVENT_SUCCESS,
+                filteredEventList.get(targetIndex.getZeroBased()).getName().fullName)
+                + <span class="string"><span class="delimiter">&quot;</span><span class="content"> [</span><span class="delimiter">&quot;</span></span> + targetIndex.getOneBased() + <span class="string"><span class="delimiter">&quot;</span><span class="content">]</span><span class="delimiter">&quot;</span></span>);
+
+    }
+    <span class="comment">//...</span>
+}</code></pre>
+</div>
 </div>
 </div>
 <div class="sect4">
@@ -1574,4 +1655,4 @@ e: 'event' context
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 12:28:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 14:09:55 UTC</div></div></div></body></html>
