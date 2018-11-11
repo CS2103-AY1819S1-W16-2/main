@@ -194,10 +194,49 @@ The following figure shows the expected panel before and after entering the <cod
 <div class="title">Figure 1. Panel display changing from volunteers to events</div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="volunteer-management"><a class="link" href="#volunteer-management">3.2. Volunteer Management</a></h3>
 <div class="sect3">
-<h4 id="command-volunteer-add"><a class="link" href="#command-volunteer-add">3.2.1. Registering new volunteer: <code>add</code></a></h4>
+<h4 id="command-overview"><a class="link" href="#command-overview">3.2. Viewing overview: <code>overview</code></a></h4>
+<div class="paragraph">
+<p>Display box displays statistical overview of volunteers and events, such as number of events and volunteer distribution.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>overview</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This command only works when managing volunteers or events. The command does not work when manging volunteering records.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example(s):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>overview</code><br>
+Display box displays statistics of number of types of events and volunteer distribution.<br>
+The following figure shows the expected display after executing the <code>overview</code> command.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command_overview.png" alt="overview" width="600">
+</div>
+<div class="title">Figure 2. Overview of events and volunteers</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="volunteer-management"><a class="link" href="#volunteer-management">3.3. Volunteer Management</a></h3>
+<div class="sect3">
+<h4 id="command-volunteer-add"><a class="link" href="#command-volunteer-add">3.3.1. Registering new volunteer: <code>add</code></a></h4>
 <div class="paragraph">
 <p>Adds a volunteer to the system when in the volunteers context<br>
 Format: <code>add n/NAME g/GENDER b/BIRTHDAY p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
@@ -223,7 +262,7 @@ Format: <code>add n/NAME g/GENDER b/BIRTHDAY p/PHONE_NUMBER e/EMAIL a/ADDRESS [t
 <div class="content">
 <img src="../images/command_volunteer_add_before.png" alt="add command" width="200">
 </div>
-<div class="title">Figure 2. Before adding a volunteer</div>
+<div class="title">Figure 3. Before adding a volunteer</div>
 </div>
 <div class="paragraph">
 <p>The figure above shows how the panel looks like before executing the commands below.</p>
@@ -277,7 +316,7 @@ Format: <code>add n/NAME g/GENDER b/BIRTHDAY p/PHONE_NUMBER e/EMAIL a/ADDRESS [t
 <div class="content">
 <img src="../images/command_volunteer_add_after1.png" alt="add command" width="200">
 </div>
-<div class="title">Figure 3. Output of <code>add</code></div>
+<div class="title">Figure 4. Output of <code>add</code></div>
 </div>
 </li>
 <li>
@@ -331,14 +370,14 @@ Format: <code>add n/NAME g/GENDER b/BIRTHDAY p/PHONE_NUMBER e/EMAIL a/ADDRESS [t
 <div class="content">
 <img src="../images/command_volunteer_add_after2.png" alt="add command" width="200">
 </div>
-<div class="title">Figure 4. Output of <code>add</code></div>
+<div class="title">Figure 5. Output of <code>add</code></div>
 </div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="command-volunteer-list"><a class="link" href="#command-volunteer-list">3.2.2. Listing all volunteers : <code>list</code></a></h4>
+<h4 id="command-volunteer-list"><a class="link" href="#command-volunteer-list">3.3.2. Listing all volunteers : <code>list</code></a></h4>
 <div class="paragraph">
 <p>Lists all volunteers in the system when in the volunteers context.<br>
 Format: <code>list</code></p>
@@ -350,11 +389,11 @@ Format: <code>list</code></p>
 <div class="content">
 <img src="../images/command_volunteer_list.png" alt="list command" width="200">
 </div>
-<div class="title">Figure 5. Output of <code>list</code></div>
+<div class="title">Figure 6. Output of <code>list</code></div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="command-volunteer-edit"><a class="link" href="#command-volunteer-edit">3.2.3. Editing volunteers details : <code>edit</code></a></h4>
+<h4 id="command-volunteer-edit"><a class="link" href="#command-volunteer-edit">3.3.3. Editing volunteers details : <code>edit</code></a></h4>
 <div class="paragraph">
 <p>Edit details of an existing volunteer in the system when in the volunteers context.<br>
 Format: <code>edit VOLUNTEER_INDEX [n/NAME]  [g/GENDER] [b/BIRTHDAY]  [p/PHONE_NUMBER] [a/ADDRESS] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
@@ -402,19 +441,19 @@ Edits the name of the volunteer at index 1</p>
 <div class="content">
 <img src="../images/command_volunteer_edit_before.png" alt="Before edit" width="200">
 </div>
-<div class="title">Figure 6. Before entering the edit command</div>
+<div class="title">Figure 7. Before entering the edit command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/command_volunteer_edit_after.png" alt="After edit" width="200">
 </div>
-<div class="title">Figure 7. The targeted volunteer is updated to reflect the new values after entering the edit command</div>
+<div class="title">Figure 8. The targeted volunteer is updated to reflect the new values after entering the edit command</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="command-volunteer-delete"><a class="link" href="#command-volunteer-delete">3.2.4. Deleting volunteer details : <code>delete</code></a></h4>
+<h4 id="command-volunteer-delete"><a class="link" href="#command-volunteer-delete">3.3.4. Deleting volunteer details : <code>delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes details of an existing volunteer in the system when in the volunteer context.<br>
 Format: <code>delete VOLUNTEER_INDEX</code></p>
@@ -439,19 +478,19 @@ Deletes the details of the volunteer specified at index 1</p>
 <div class="content">
 <img src="../images/command_volunteer_delete_before.png" alt="Before delete" width="200">
 </div>
-<div class="title">Figure 8. The volunteer at index 1 is targeted before entering the delete command</div>
+<div class="title">Figure 9. The volunteer at index 1 is targeted before entering the delete command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/command_volunteer_delete_after.png" alt="After delete" width="200">
 </div>
-<div class="title">Figure 9. The targeted volunteer is deleted after entering the delete command</div>
+<div class="title">Figure 10. The targeted volunteer is deleted after entering the delete command</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="command-volunteer-exportcert"><a class="link" href="#command-volunteer-exportcert">3.2.5. Exporting volunteer certificate : <code>exportcert</code></a></h4>
+<h4 id="command-volunteer-exportcert"><a class="link" href="#command-volunteer-exportcert">3.3.5. Exporting volunteer certificate : <code>exportcert</code></a></h4>
 <div class="paragraph">
 <p>Exports a PDF document to a folder in the user&#8217;s current working directory or directly to the desktop, detailing the volunteer&#8217;s involvement with the organisation. This document includes:</p>
 </div>
@@ -523,7 +562,7 @@ A success message will also be displayed in the following form: 'Certificate exp
 <div class="content">
 <img src="../images/CurrentVolunteerCert.png" alt="CurrentVolunteerCert" width="600">
 </div>
-<div class="title">Figure 10. Current sample exported volunteer certificate [John Doe_1.pdf]</div>
+<div class="title">Figure 11. Current sample exported volunteer certificate [John Doe_1.pdf]</div>
 </div>
 <div class="paragraph">
 <p>Here is the intended final form of the exported certificate:</p>
@@ -532,7 +571,7 @@ A success message will also be displayed in the following form: 'Certificate exp
 <div class="content">
 <img src="../images/FinalVolunteerCert.png" alt="FinalVolunteerCert" width="600">
 </div>
-<div class="title">Figure 11. Intended sample exported volunteer certificate</div>
+<div class="title">Figure 12. Intended sample exported volunteer certificate</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -551,12 +590,12 @@ A success message will also be displayed in the following form: 'Certificate exp
 </div>
 </div>
 <div class="sect2">
-<h3 id="event-management"><a class="link" href="#event-management">3.3. Event Management</a></h3>
+<h3 id="event-management"><a class="link" href="#event-management">3.4. Event Management</a></h3>
 <div class="paragraph">
 <p>The following commands can only be accessed after switching to the 'event' panel. (see <a href="#command-switch">Switching panels: <code>switch</code></a>)</p>
 </div>
 <div class="sect3">
-<h4 id="command-event-add"><a class="link" href="#command-event-add">3.3.1. Adding new event: <code>add</code></a></h4>
+<h4 id="command-event-add"><a class="link" href="#command-event-add">3.4.1. Adding new event: <code>add</code></a></h4>
 <div class="paragraph">
 <p>Adds an event to the system.<br></p>
 </div>
@@ -590,7 +629,7 @@ A success message will also be displayed in the following form: 'Certificate exp
 <div class="content">
 <img src="../images/command_event_add_before.png" alt="add command" width="300">
 </div>
-<div class="title">Figure 12. Panel before adding an event</div>
+<div class="title">Figure 13. Panel before adding an event</div>
 </div>
 <div class="ulist">
 <ul>
@@ -603,7 +642,7 @@ A success message will also be displayed in the following form: 'Certificate exp
 <div class="content">
 <img src="../images/command_event_add_before_after1.png" alt="add command" width="600">
 </div>
-<div class="title">Figure 13. Result of <code>add n/Flag Day l/Yishun MRT sd/31-10-2018 ed/31-10-2018 st/09:00 et/15:00 d/For the children&#8217;s home</code></div>
+<div class="title">Figure 14. Result of <code>add n/Flag Day l/Yishun MRT sd/31-10-2018 ed/31-10-2018 st/09:00 et/15:00 d/For the children&#8217;s home</code></div>
 </div>
 </li>
 <li>
@@ -616,14 +655,14 @@ t/charity</code></p>
 <div class="content">
 <img src="../images/command_event_add_before_after2.png" alt="add command" width="600">
 </div>
-<div class="title">Figure 14. Result of <code>add n/Fundraising l/Tampines Street 31 sd/15-11-2018 ed/17-11-2018 st/13:00 et/18:00 d/Raising funds t/fundraiser t/charity</code></div>
+<div class="title">Figure 15. Result of <code>add n/Fundraising l/Tampines Street 31 sd/15-11-2018 ed/17-11-2018 st/13:00 et/18:00 d/Raising funds t/fundraiser t/charity</code></div>
 </div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="command-event-list"><a class="link" href="#command-event-list">3.3.2. Listing all events : <code>list</code></a></h4>
+<h4 id="command-event-list"><a class="link" href="#command-event-list">3.4.2. Listing all events : <code>list</code></a></h4>
 <div class="paragraph">
 <p>Lists all events in the system and display them in the panel.<br></p>
 </div>
@@ -636,11 +675,11 @@ The figure below shows a panel displaying all existing events after executing th
 <div class="content">
 <img src="../images/command_event_list.png" alt="list command" width="200">
 </div>
-<div class="title">Figure 15. Output of <code>list</code></div>
+<div class="title">Figure 16. Output of <code>list</code></div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="command-event-edit"><a class="link" href="#command-event-edit">3.3.3. Editing event details : <code>edit</code></a></h4>
+<h4 id="command-event-edit"><a class="link" href="#command-event-edit">3.4.3. Editing event details : <code>edit</code></a></h4>
 <div class="paragraph">
 <p>Edit details of an existing event in the system when in the 'event' context.<br></p>
 </div>
@@ -680,7 +719,7 @@ The figure below shows a panel displaying all existing events after executing th
 <div class="content">
 <img src="../images/command_event_edit_before.png" alt="add command" width="300">
 </div>
-<div class="title">Figure 16. Panel before editing an event, EVENT_INDEX is indicated in the circles</div>
+<div class="title">Figure 17. Panel before editing an event, EVENT_INDEX is indicated in the circles</div>
 </div>
 <div class="ulist">
 <ul>
@@ -692,14 +731,14 @@ The expected result is shown in the figure below.</p>
 <div class="content">
 <img src="../images/command_event_edit_before_after.png" alt="Before edit" width="600">
 </div>
-<div class="title">Figure 17. Result of <code>edit 1 n/Charity Fun Run t/</code></div>
+<div class="title">Figure 18. Result of <code>edit 1 n/Charity Fun Run t/</code></div>
 </div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="command-event-delete"><a class="link" href="#command-event-delete">3.3.4. Deleting event: <code>delete</code></a></h4>
+<h4 id="command-event-delete"><a class="link" href="#command-event-delete">3.4.4. Deleting event: <code>delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes an existing event in the system when in the 'event' context.<br></p>
 </div>
@@ -722,7 +761,7 @@ The expected result is shown in the figure below.</p>
 <div class="content">
 <img src="../images/command_event_delete_before_after.png" alt="Before delete" width="600">
 </div>
-<div class="title">Figure 18. Result of <code>delete 3</code></div>
+<div class="title">Figure 19. Result of <code>delete 3</code></div>
 </div>
 </li>
 </ul>
@@ -730,7 +769,7 @@ The expected result is shown in the figure below.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="record-management"><a class="link" href="#record-management">3.4. Record Management</a></h3>
+<h3 id="record-management"><a class="link" href="#record-management">3.5. Record Management</a></h3>
 <div class="paragraph">
 <p>This section contains commands related to managing a volunteering record.</p>
 </div>
@@ -749,7 +788,7 @@ The expected result is shown in the figure below.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="command-record-manage"><a class="link" href="#command-record-manage">3.4.1. Viewing event&#8217;s volunteer records: <code>manage</code></a></h4>
+<h4 id="command-record-manage"><a class="link" href="#command-record-manage">3.5.1. Viewing event&#8217;s volunteer records: <code>manage</code></a></h4>
 <div class="paragraph">
 <p>The panel updates to show the list of volunteers while the display area shows the volunteers currently registered for the selected event.<br></p>
 </div>
@@ -772,22 +811,19 @@ See the figures below for a step by step guide.</p>
 <div class="content">
 <img src="../images/command_switch.png" alt="switch execution" width="600">
 </div>
-<div class="title">Figure 19. Execute <code>switch -e</code></div>
+<div class="title">Figure 20. Execute <code>switch -e</code></div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/command_record_manage_eventIndex.png" alt="switch execution" width="200">
 </div>
-<div class="title">Figure 20. <code>manage 1</code> targets the event at index 1</div>
+<div class="title">Figure 21. <code>manage 1</code> targets the event at index 1</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/command_manage_view.png" alt="manage" width="600">
 </div>
-<div class="title">Figure 21. Labelled screenshot of what to expect after executing <code>manage 1</code></div>
-</div>
-<div class="paragraph">
-<p>The last figure shows the screen you will see after executing the <code>manage</code> command successfully.</p>
+<div class="title">Figure 22. Labelled screenshot of what to expect after executing <code>manage 1</code></div>
 </div>
 <div class="paragraph">
 <p>The following changes are observed:</p>
@@ -801,13 +837,13 @@ See the figures below for a step by step guide.</p>
 <p>Name of event being managed and total number of volunteers assigned to it.</p>
 </li>
 <li>
-<p>List of volunteers currently assigned to the event. It will be empty if no volunteers are assigned.</p>
+<p>List of volunteers currently assigned to the event. It will be empty if there are no volunteers assigned.</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect3">
-<h4 id="command-record-add"><a class="link" href="#command-record-add">3.4.2. Adding volunteer to event: <code>add</code></a></h4>
+<h4 id="command-record-add"><a class="link" href="#command-record-add">3.5.2. Adding volunteer to event: <code>add</code></a></h4>
 <div class="paragraph">
 <p>Adds a volunteer to the event that is currently being managed.<br>
 Refer to <a href="#command-record-manage">Viewing event&#8217;s volunteer records: <code>manage</code></a> on how to manage events.</p>
@@ -853,7 +889,7 @@ The following examples are entered after executing the following commands:<br>
 <div class="content">
 <img src="../images/command_record_add.png" alt="add command" width="600">
 </div>
-<div class="title">Figure 22. After executing <code>manage 1</code></div>
+<div class="title">Figure 23. After executing <code>manage 1</code></div>
 </div>
 <div class="ulist">
 <ul>
@@ -868,7 +904,7 @@ Expected display box is shown in the figure below.</p>
 <div class="content">
 <img src="../images/command_record_add_after1.png" alt="add command" width="600">
 </div>
-<div class="title">Figure 23. Output of <code>add 1</code></div>
+<div class="title">Figure 24. Output of <code>add 1</code></div>
 </div>
 <div class="ulist">
 <ul>
@@ -883,11 +919,11 @@ Expected display box is shown in the figure below.</p>
 <div class="content">
 <img src="../images/command_record_add_after2.png" alt="add command" width="600">
 </div>
-<div class="title">Figure 24. Output of <code>add 1 h/5 r/Driver</code></div>
+<div class="title">Figure 25. Output of <code>add 1 h/5 r/Driver</code></div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="command-record-edit"><a class="link" href="#command-record-edit">3.4.3. Updating volunteer record: <code>edit</code></a></h4>
+<h4 id="command-record-edit"><a class="link" href="#command-record-edit">3.5.3. Updating volunteer record: <code>edit</code></a></h4>
 <div class="paragraph">
 <p>Updates a volunteer record in the event that is currently being managed.<br>
 Refer to <a href="#command-record-manage">Viewing event&#8217;s volunteer records: <code>manage</code></a> on how to manage events.</p>
@@ -917,7 +953,7 @@ This display can be seen after executing the <code>manage</code> command.</p>
 <div class="content">
 <img src="../images/command_record_edit_volunteerIndex.png" alt="volunteer index" width="600">
 </div>
-<div class="title">Figure 25. The VOLUNTEER_INDEX</div>
+<div class="title">Figure 26. Display after excuting <code>manage</code></div>
 </div>
 <div class="paragraph">
 <p>Example(s):</p>
@@ -935,17 +971,17 @@ The figures below show the display box before and after editing a record.</p>
 <div class="content">
 <img src="../images/command_record_edit.png" alt="edit command" width="600">
 </div>
-<div class="title">Figure 26. Before updating the volunteer record</div>
+<div class="title">Figure 27. Before updating the volunteer record</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/command_record_edit_after.png" alt="edit command" width="600">
 </div>
-<div class="title">Figure 27. Output of <code>edit 2 h/5 r/Emcee</code></div>
+<div class="title">Figure 28. Output of <code>edit 2 h/5 r/Emcee</code></div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="command-record-delete"><a class="link" href="#command-record-delete">3.4.4. Deleting volunteer record from event: <code>delete</code></a></h4>
+<h4 id="command-record-delete"><a class="link" href="#command-record-delete">3.5.4. Deleting volunteer record from event: <code>delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes the volunteer record from the event that is currently being managed.<br>
 Refer to <a href="#command-record-manage">Viewing event&#8217;s volunteer records: <code>manage</code></a> on how to manage events.</p>
@@ -953,16 +989,17 @@ Refer to <a href="#command-record-manage">Viewing event&#8217;s volunteer record
 <div class="paragraph">
 <p>Format: <code>delete VOLUNTEER_INDEX</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>VOLUNTEER_INDEX comes from the table view of existing volunteers.</p>
-</li>
-</ul>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+VOLUNTEER_INDEX comes from the table view of existing volunteers.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The figure below shows the highlighted column that indicates the VOLUNTEER_INDEX that you have to enter.<br>
@@ -972,7 +1009,7 @@ This display can be seen after executing the <code>manage</code> command.</p>
 <div class="content">
 <img src="../images/command_record_edit_volunteerIndex.png" alt="volunteer index" width="600">
 </div>
-<div class="title">Figure 28. The VOLUNTEER_INDEX</div>
+<div class="title">Figure 29. The VOLUNTEER_INDEX</div>
 </div>
 <div class="paragraph">
 <p>Example(s):</p>
@@ -988,29 +1025,29 @@ The figures below show the display box before and after deleting a record.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/command_record_edit_after.png" alt="delete command" width="600">
+<img src="../images/command_record_edit.png" alt="delete command" width="600">
 </div>
-<div class="title">Figure 29. Before deleting the volunteer record</div>
+<div class="title">Figure 30. Before deleting the volunteer record</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/command_record_delete.png" alt="delete command" width="600">
 </div>
-<div class="title">Figure 30. Output of <code>delete 1</code></div>
+<div class="title">Figure 31. Output of <code>delete 1</code></div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous"><a class="link" href="#miscellaneous">3.5. Miscellaneous</a></h3>
+<h3 id="miscellaneous"><a class="link" href="#miscellaneous">3.6. Miscellaneous</a></h3>
 <div class="sect3">
-<h4 id="saving-data"><a class="link" href="#saving-data">3.5.1. Saving data</a></h4>
+<h4 id="saving-data"><a class="link" href="#saving-data">3.6.1. Saving data</a></h4>
 <div class="paragraph">
 <p>SocialCare data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.5.2. Encrypting data files <code>[coming in v2.0]</code></a></h4>
+<h4 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.6.2. Encrypting data files <code>[coming in v2.0]</code></a></h4>
 
 </div>
 </div>
@@ -1057,6 +1094,12 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#command-history">[command-history]</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Overview</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>overview</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>overview</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#command-overview">Viewing overview: <code>overview</code></a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Redo</strong></p></td>
@@ -1276,22 +1319,19 @@ See the figures below for a step by step guide.</p>
 <div class="content">
 <img src="../images/command_switch.png" alt="switch execution" width="600">
 </div>
-<div class="title">Figure 31. Execute <code>switch -e</code></div>
+<div class="title">Figure 32. Execute <code>switch -e</code></div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/command_record_manage_eventIndex.png" alt="switch execution" width="200">
 </div>
-<div class="title">Figure 32. <code>manage 1</code> targets the event at index 1</div>
+<div class="title">Figure 33. <code>manage 1</code> targets the event at index 1</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/command_manage_view.png" alt="manage" width="600">
 </div>
-<div class="title">Figure 33. Labelled screenshot of what to expect after executing <code>manage 1</code></div>
-</div>
-<div class="paragraph">
-<p>The last figure shows the screen you will see after executing the <code>manage</code> command successfully.</p>
+<div class="title">Figure 34. Labelled screenshot of what to expect after executing <code>manage 1</code></div>
 </div>
 <div class="paragraph">
 <p>The following changes are observed:</p>
@@ -1305,7 +1345,7 @@ See the figures below for a step by step guide.</p>
 <p>Name of event being managed and total number of volunteers assigned to it.</p>
 </li>
 <li>
-<p>List of volunteers currently assigned to the event. It will be empty if no volunteers are assigned.</p>
+<p>List of volunteers currently assigned to the event. It will be empty if there are no volunteers assigned.</p>
 </li>
 </ol>
 </div>
@@ -1357,7 +1397,7 @@ The following examples are entered after executing the following commands:<br>
 <div class="content">
 <img src="../images/command_record_add.png" alt="add command" width="600">
 </div>
-<div class="title">Figure 34. After executing <code>manage 1</code></div>
+<div class="title">Figure 35. After executing <code>manage 1</code></div>
 </div>
 <div class="ulist">
 <ul>
@@ -1372,7 +1412,7 @@ Expected display box is shown in the figure below.</p>
 <div class="content">
 <img src="../images/command_record_add_after1.png" alt="add command" width="600">
 </div>
-<div class="title">Figure 35. Output of <code>add 1</code></div>
+<div class="title">Figure 36. Output of <code>add 1</code></div>
 </div>
 </div>
 </div>
@@ -1443,7 +1483,7 @@ e: 'event' context
 <div class="content">
 <img src="../images/command_switch_sd.png" alt="switch SD" width="800">
 </div>
-<div class="title">Figure 36. Simplified sequence diagram of switch command</div>
+<div class="title">Figure 37. Simplified sequence diagram of switch command</div>
 </div>
 <div class="paragraph">
 <p>The following code snippet shows what the <code>switch</code> command does upon execution:</p>
@@ -1563,7 +1603,7 @@ e: 'event' context
 <div class="content">
 <img src="../images/command_manage_sd.png" alt="manage SD" width="800">
 </div>
-<div class="title">Figure 37. Simplified sequence diagram for manage command</div>
+<div class="title">Figure 38. Simplified sequence diagram for manage command</div>
 </div>
 <div class="paragraph">
 <p>The following code snippet shows what the <code>manage</code> command does upon execution:</p>
@@ -1655,4 +1695,4 @@ e: 'event' context
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 14:09:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 14:33:16 UTC</div></div></div></body></html>
