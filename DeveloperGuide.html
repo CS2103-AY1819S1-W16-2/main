@@ -1609,55 +1609,7 @@ the highest ID with the event ID and creates the event. If it isn&#8217;t, skip 
 <div class="sect4">
 <h5 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design considerations</a></h5>
 <div class="sect5">
-<h6 id="aspect-context-switching"><a class="link" href="#aspect-context-switching">Aspect: Context switching</a></h6>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Utilize <code>Context</code> class used in the <code>switch</code> function. (See <a href="#Implementation-Switch">Section 4.4, &#8220;Switch command&#8221;</a>)</p>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No need to create a new class to change context.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Have to create a new method in <code>Context</code> class to handle parsed user input.</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Pass event and volunteer objects via <code>LogicManager</code>.</p>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation is easy.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Classes becomes tightly coupled. The UI component would have access to methods it does not need.</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="design-considerations-6"><a class="link" href="#design-considerations-6">Design considerations</a></h5>
-<div class="sect5">
-<h6 id="aspect-context-switching-2"><a class="link" href="#aspect-context-switching-2">Aspect: Context switching</a></h6>
+<h6 id="aspect-context-switching-to-volunteering-records"><a class="link" href="#aspect-context-switching-to-volunteering-records">Aspect: Context switching (to volunteering records)</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -3832,4 +3784,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 14:36:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 15:15:11 UTC</div></div></div></body></html>
