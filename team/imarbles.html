@@ -11,27 +11,28 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>This portfolio page documents my involvement in SocialCare, a project done as part of the CS21303T Software Engineering module taught in NUS.
-My team decided to develop SocialCare based on our goal of wanting to <em>'harness the potential of software to create sustainable social change'</em>.</p>
+For this project, my team had the goal to <em>'harness the potential of software to create sustainable social change'</em>.</p>
 </div>
 <div class="paragraph">
-<p>SocialCare is a desktop application made for social welfare organizations.
-The application is designed to help manage volunteers and events effectively.
-Users interact with the application using a Command Line Interface (CLI).
-In addition, SocialCare has a Graphical User Interface (GUI) to display information in a user-friendly manner.</p>
+<p>With our goal in mind, we developed SocialCare, a desktop application made for social welfare organizations.
+This application is designed to help manage volunteers and events effectively. This is done through the Command Line Interface (CLI), which help users to interact with the application; and the Graphical User Interface (GUI), which displays information in a user-friendly manner.</p>
 </div>
 <div class="paragraph">
-<p>My main role as a developer for SocialCare was to implement <strong>record management functions</strong>, which enables users to do the following:</p>
+<p>My main role as a developer for SocialCare was to implement <strong>record management functions</strong>, which enable users to do the following:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Assign volunteers to event</p>
+<p>View volunteers assigned to an event</p>
+</li>
+<li>
+<p>Assign volunteers to an event</p>
 </li>
 <li>
 <p>Update volunteering records for volunteers</p>
 </li>
 <li>
-<p>Delete volunteering records of volunteer</p>
+<p>Delete volunteering records of volunteers</p>
 </li>
 </ul>
 </div>
@@ -44,12 +45,12 @@ In addition, SocialCare has a Graphical User Interface (GUI) to display informat
 <ul>
 <li>
 <p><strong>Major enhancement</strong>:
-added commands to <strong>manage volunteer records</strong></p>
+Added commands to <strong>manage volunteer records</strong></p>
 <div class="ulist">
 <ul>
 <li>
 <p>What it does:
-The commands implemented allows the user to manage volunteering records.
+The commands implemented allow users to manage volunteering records.
 They will be able to assign volunteers to events and update the number of hours contributed by the volunteer.</p>
 </li>
 <li>
@@ -59,14 +60,23 @@ These functions are part of the core requirements for the application because we
 <li>
 <p>Highlights:
 This enhancement is completely new and required an in-depth analysis of design alternatives.
-This enhancement was challenging as it required complete understanding of all code components so that it can be properly implemented.</p>
+It was challenging as to properly implement this, a complete understanding of all code components was needed.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>:
-added a command to allow users to <strong>switch between panels</strong>. The panels are used to display either volunteers or events for users to manage.</p>
+<p><strong>Minor enhancement</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added a command to allow users to <strong>switch between panels</strong>.</p>
+</li>
+<li>
+<p>Created charts for the <code>overview</code> command.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Code contributed</strong>:
@@ -85,7 +95,7 @@ to my code on the Project Code Dashboard.</p>
 <p>Set up the team repository on GitHub</p>
 </li>
 <li>
-<p>Ensured that project deliverables are done on time and in the right format</p>
+<p>Ensured that project deliverables were done on time and in the right format</p>
 </li>
 </ul>
 </div>
@@ -142,12 +152,67 @@ to my code on the Project Code Dashboard.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="command-switch"><a class="link" href="#command-switch">3.1. Switching panels: <code>switch</code></a></h4>
+<h4 id="command-record-manage"><a class="link" href="#command-record-manage">3.1. Viewing event&#8217;s volunteer records: <code>manage</code></a></h4>
+<div class="paragraph">
+<p>The panel updates to show the list of volunteers while the display area shows the volunteers currently registered for the selected event.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>manage EVENT_INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Example(s):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>switch -e</code> (panel updates to show list of events)<br>
+<code>manage 1</code> (view the list of volunteers assigned to the event at index 1)<br>
+See the figures below for a step-by-step guide.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command_switch.png" alt="switch execution" width="500">
+</div>
+<div class="title">Figure 1. Execute <code>switch -e</code></div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command_record_manage_eventIndex.png" alt="switch execution" width="200">
+</div>
+<div class="title">Figure 2. <code>manage 1</code> targets the event at index 1</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command_manage_view.png" alt="manage" width="600">
+</div>
+<div class="title">Figure 3. Labelled screenshot of what to expect after executing <code>manage 1</code></div>
+</div>
+<div class="paragraph">
+<p>Refer to the labelled sections in the figure above for the following changes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The panel displays the list of volunteers that you can assign to an event.</p>
+</li>
+<li>
+<p>Name of the event being managed and total number of volunteers assigned to it.</p>
+</li>
+<li>
+<p>The list of volunteers currently assigned to the event. It will be empty if there are no volunteers assigned.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="command-switch"><a class="link" href="#command-switch">3.2. Switching panels: <code>switch</code></a></h4>
 <div class="paragraph">
 <p>Switches the panel to display either volunteers or events<br></p>
 </div>
@@ -190,62 +255,7 @@ The following figure shows the expected panel before and after entering the <cod
 <div class="content">
 <img src="../images/command_switch.png" alt="switch" width="500">
 </div>
-<div class="title">Figure 1. Panel display changing from volunteers to events</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="command-record-manage"><a class="link" href="#command-record-manage">3.2. Viewing event&#8217;s volunteer records: <code>manage</code></a></h4>
-<div class="paragraph">
-<p>The panel updates to show the list of volunteers while the display area shows the volunteers currently registered for the selected event.<br></p>
-</div>
-<div class="paragraph">
-<p>Format: <code>manage EVENT_INDEX</code></p>
-</div>
-<div class="paragraph">
-<p>Example(s):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>switch -e</code> (panel updates to show list of events)<br>
-<code>manage 1</code> (view the list of volunteers assigned to event at index 1)<br>
-See the figures below for a step by step guide.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/command_switch.png" alt="switch execution" width="500">
-</div>
-<div class="title">Figure 2. Execute <code>switch -e</code></div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/command_record_manage_eventIndex.png" alt="switch execution" width="200">
-</div>
-<div class="title">Figure 3. <code>manage 1</code> targets the event at index 1</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/command_manage_view.png" alt="manage" width="600">
-</div>
-<div class="title">Figure 4. Labelled screenshot of what to expect after executing <code>manage 1</code></div>
-</div>
-<div class="paragraph">
-<p>The following changes are observed:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Panel displays the list of volunteers that you can assign to an event.</p>
-</li>
-<li>
-<p>Name of event being managed and total number of volunteers assigned to it.</p>
-</li>
-<li>
-<p>List of volunteers currently assigned to the event. It will be empty if there are no volunteers assigned.</p>
-</li>
-</ol>
+<div class="title">Figure 4. Panel display changing from list of volunteers to list of events</div>
 </div>
 </div>
 </div>
@@ -259,145 +269,17 @@ See the figures below for a step by step guide.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="Implementation-Switch"><a class="link" href="#Implementation-Switch">4.1. Switch command</a></h3>
-<div class="paragraph">
-<p>The <code>switch</code> command is used to switch the context between 'volunteer' and 'event'.</p>
-</div>
-<div class="sect4">
-<h5 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h5>
-<div class="paragraph">
-<p>This <code>switch</code> command requires the <code>SwitchCommandParser</code> class to parse user input and help determine the context to switch to.<br></p>
-</div>
-<div class="paragraph">
-<p><code>SwitchCommandParser</code> implements the <code>Parser</code> class which has the <code>Parser#parse()</code> operation. This operation will throw an error if the user input does not match the command format or is an invalid context to switch to.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-There are only 2 valid contexts which a user can switch to with the command.<br>
-v: 'volunteer' context<br>
-e: 'event' context
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>switch</code> command updates the context found in <code>ModelManager</code> before raising the context change event to update the UI.</p>
-</div>
-<div class="paragraph">
-<p>In addition to updating the context, the <code>switch</code> command also does the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Clear all predicates for volunteer, events and record lists.</p>
-</li>
-<li>
-<p>Resets the state pointer (for undo/redo functions).</p>
-</li>
-<li>
-<p>Raise a <code>ContextChangeEvent</code> to update the UI.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The figure below is the sequence diagram to show how the <code>switch</code> command works when switching from volunteer to event context.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/command_switch_sd.png" alt="switch SD" width="800">
-</div>
-<div class="title">Figure 5. Simplified sequence diagram of switch command</div>
-</div>
-<div class="paragraph">
-<p>The following code snippet shows what the <code>switch</code> command does upon execution:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="Java"><span class="directive">public</span> <span class="type">class</span> <span class="class">SwitchCommand</span> <span class="directive">extends</span> Command {
-    <span class="comment">//...</span>
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult execute(Model model, CommandHistory history) {
-        requireNonNull(model);
-
-        model.setCurrentContext(contextId);
-        model.updateFilteredVolunteerList(Model.PREDICATE_SHOW_ALL_VOLUNTEERS);
-        model.updateFilteredEventList(Model.PREDICATE_SHOW_ALL_EVENTS);
-        model.updateFilteredRecordList(Model.PREDICATE_SHOW_ALL_RECORDS);
-        model.resetStatePointer();
-
-        EventsCenter.getInstance().post(<span class="keyword">new</span> ContextChangeEvent(contextId));
-        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(<span class="predefined-type">String</span>.format(MESSAGE_SUCCESS, model.getContextName()));
-    }
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h5>
-<div class="sect5">
-<h6 id="aspect-how-context-is-maintained"><a class="link" href="#aspect-how-context-is-maintained">Aspect: How context is maintained</a></h6>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Create a new <code>Context</code> class.</p>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Can support even more contexts in the future due to the flexibility of a class.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tedious to do as relevant methods have to be implemented in model.</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Pass a hard-coded context id around.</p>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No need to create a new object to handle the context.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Difficult to maintain the id throughout the whole application. Any change in context id would require all the codes to be updated.</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Implementation-Manage"><a class="link" href="#Implementation-Manage">4.2. Manage command</a></h3>
+<h3 id="Implementation-Manage"><a class="link" href="#Implementation-Manage">4.1. Manage command</a></h3>
 <div class="paragraph">
 <p>The <code>manage</code> command is used in the 'event' context to manage the volunteering records for an event.<br></p>
 </div>
 <div class="sect4">
-<h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current implementation</a></h5>
+<h5 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h5>
 <div class="paragraph">
 <p>This <code>manage</code> command requires the <code>ManageCommandParser</code> class to parse user input and determine which event to manage.<br></p>
 </div>
@@ -413,30 +295,21 @@ e: 'event' context
 <div class="ulist">
 <ul>
 <li>
-<p>Clear all predicates for volunteer list.</p>
+<p>Clears all predicates for volunteer list.</p>
 </li>
 <li>
-<p>Filter the existing records by the selected event.</p>
+<p>Filters the existing records by the selected event.</p>
 </li>
 <li>
 <p>Resets the state pointer (for undo/redo functions).</p>
 </li>
 <li>
-<p>Raise a <code>RecordChangeEvent</code> to set the selected event.</p>
+<p>Raises <code>RecordChangeEvent</code> to set the selected event.</p>
 </li>
 <li>
-<p>Raise a <code>ContextChangeEvent</code> to update the UI.</p>
+<p>Raises <code>ContextChangeEvent</code> to update the UI.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>The figure below is the sequence diagram to show how the <code>switch</code> command works when switching from volunteer to event context.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/command_manage_sd.png" alt="manage SD" width="800">
-</div>
-<div class="title">Figure 6. Simplified sequence diagram for manage command</div>
 </div>
 <div class="paragraph">
 <p>The following code snippet shows what the <code>manage</code> command does upon execution:</p>
@@ -477,9 +350,35 @@ e: 'event' context
 }</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>From the code snippet above, we see that the current state of event list from the model is stored into another list called 'filteredEventList'.
+Storing the events in another list is done so that the list can be easily referenced in later parts of the code.</p>
+</div>
+<div class="paragraph">
+<p>The volunteer list in the model is updated with the predicate so that it now contains the list of all volunteers in the system.</p>
+</div>
+<div class="paragraph">
+<p>A quick check is done to ensure that the user input is valid. Otherwise, an exception is thrown.</p>
+</div>
+<div class="paragraph">
+<p>If the user input is valid, the application changes to the record context. Then, the selected event by the user is stored in the model.
+In addition, the model resets the state pointer so that the <code>undo</code> and <code>redo</code> functions will point to a fresh, new state.</p>
+</div>
+<div class="paragraph">
+<p>Lastly, all the relevant UI is updated by posting events via the <code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p>The figure below is the sequence diagram to show how the <code>switch</code> command works when switching from volunteer to event context.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command_manage_sd.png" alt="manage SD" width="800">
+</div>
+<div class="title">Figure 5. Simplified sequence diagram for manage command</div>
+</div>
 </div>
 <div class="sect4">
-<h5 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design considerations</a></h5>
+<h5 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h5>
 <div class="sect5">
 <h6 id="aspect-context-switching-to-volunteering-records"><a class="link" href="#aspect-context-switching-to-volunteering-records">Aspect: Context switching (to volunteering records)</a></h6>
 <div class="ulist">
@@ -527,5 +426,153 @@ e: 'event' context
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="Implementation-Switch"><a class="link" href="#Implementation-Switch">4.2. Switch command</a></h3>
+<div class="paragraph">
+<p>The <code>switch</code> command is used to switch the context between 'volunteer' and 'event'.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:33:27 UTC</div></div></div></body></html>
+<div class="sect4">
+<h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current implementation</a></h5>
+<div class="paragraph">
+<p>This <code>switch</code> command requires the <code>SwitchCommandParser</code> class to parse user input and help determine the context to switch to.<br></p>
+</div>
+<div class="paragraph">
+<p><code>SwitchCommandParser</code> implements the <code>Parser</code> class which has the <code>Parser#parse()</code> operation. This operation will throw an error if the user input does not match the command format or is an invalid context to switch to.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There are only 2 valid contexts which a user can switch to with the command.<br>
+v: 'volunteer' context<br>
+e: 'event' context
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>switch</code> command updates the context found in <code>ModelManager</code> before raising the context change event to update the UI.</p>
+</div>
+<div class="paragraph">
+<p>In addition to updating the context, the <code>switch</code> command also does the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Clears all predicates for volunteers, events and record lists.</p>
+</li>
+<li>
+<p>Resets the state pointer (for undo/redo functions).</p>
+</li>
+<li>
+<p>Raises <code>ContextChangeEvent</code> to update the UI.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows what the <code>switch</code> command does upon execution:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Java"><span class="directive">public</span> <span class="type">class</span> <span class="class">SwitchCommand</span> <span class="directive">extends</span> Command {
+    <span class="comment">//...</span>
+    <span class="directive">public</span> SwitchCommand(<span class="predefined-type">String</span> contextToSwitch) {
+            requireNonNull(contextToSwitch);
+            contextId = contextToSwitch;
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute(Model model, CommandHistory history) {
+        requireNonNull(model);
+
+        model.setCurrentContext(contextId);
+        model.updateFilteredVolunteerList(Model.PREDICATE_SHOW_ALL_VOLUNTEERS);
+        model.updateFilteredEventList(Model.PREDICATE_SHOW_ALL_EVENTS);
+        model.updateFilteredRecordList(Model.PREDICATE_SHOW_ALL_RECORDS);
+        model.resetStatePointer();
+
+        EventsCenter.getInstance().post(<span class="keyword">new</span> ContextChangeEvent(contextId));
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(<span class="predefined-type">String</span>.format(MESSAGE_SUCCESS, model.getContextName()));
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the code snippet above, we see that upon calling the <code>SwitchCommand</code>, a contextId is set.
+The contextId (which is retrieved from the user&#8217;s input) is either 'e' for event or 'v' for volunteers.
+This contextId will be used when the execute method is called.</p>
+</div>
+<div class="paragraph">
+<p>When the execute method is called, the context is set in the model via the 'setCurrentContext' method.
+The model contains different methods to update the various lists. A predicate is passed to reset each of the lists to the initial state.</p>
+</div>
+<div class="paragraph">
+<p>The model also resets the state pointer so that the <code>undo</code> and <code>redo</code> functions will point to a fresh, new state.</p>
+</div>
+<div class="paragraph">
+<p>Lastly, the <code>EventsCenter</code> posts a new event so that the panels would update accordingly and display the relevant lists.</p>
+</div>
+<div class="paragraph">
+<p>The figure below is the sequence diagram to show how the <code>switch</code> command works when switching from volunteer to event context.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command_switch_sd.png" alt="switch SD" width="800">
+</div>
+<div class="title">Figure 6. Simplified sequence diagram of switch command</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-how-context-is-maintained"><a class="link" href="#aspect-how-context-is-maintained">Aspect: How context is maintained</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create a new <code>Context</code> class.</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Can support even more contexts in the future due to the flexibility of a class.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tedious to do as relevant methods have to be implemented in model.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Pass a hard-coded context id around.</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No need to create a new object to handle the context.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Difficult to maintain the id throughout the whole application. Any change in context id would require all the codes to be updated.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:06:06 UTC</div></div></div></body></html>

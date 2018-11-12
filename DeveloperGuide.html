@@ -1009,24 +1009,15 @@ e: 'event' context
 <div class="ulist">
 <ul>
 <li>
-<p>Clear all predicates for volunteer, events and record lists.</p>
+<p>Clears all predicates for volunteers, events and record lists.</p>
 </li>
 <li>
 <p>Resets the state pointer (for undo/redo functions).</p>
 </li>
 <li>
-<p>Raise a <code>ContextChangeEvent</code> to update the UI.</p>
+<p>Raises <code>ContextChangeEvent</code> to update the UI.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>The figure below is the sequence diagram to show how the <code>switch</code> command works when switching from volunteer to event context.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/command_switch_sd.png" alt="switch SD" width="800">
-</div>
-<div class="title">Figure 13. Simplified sequence diagram of switch command</div>
 </div>
 <div class="paragraph">
 <p>The following code snippet shows what the <code>switch</code> command does upon execution:</p>
@@ -1035,6 +1026,11 @@ e: 'event' context
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="Java"><span class="directive">public</span> <span class="type">class</span> <span class="class">SwitchCommand</span> <span class="directive">extends</span> Command {
     <span class="comment">//...</span>
+    <span class="directive">public</span> SwitchCommand(<span class="predefined-type">String</span> contextToSwitch) {
+            requireNonNull(contextToSwitch);
+            contextId = contextToSwitch;
+    }
+
     <span class="annotation">@Override</span>
     <span class="directive">public</span> CommandResult execute(Model model, CommandHistory history) {
         requireNonNull(model);
@@ -1050,6 +1046,30 @@ e: 'event' context
     }
 }</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>From the code snippet above, we see that upon calling the <code>SwitchCommand</code>, a contextId is set.
+The contextId (which is retrieved from the user&#8217;s input) is either 'e' for event or 'v' for volunteers.
+This contextId will be used when the execute method is called.</p>
+</div>
+<div class="paragraph">
+<p>When the execute method is called, the context is set in the model via the 'setCurrentContext' method.
+The model contains different methods to update the various lists. A predicate is passed to reset each of the lists to the initial state.</p>
+</div>
+<div class="paragraph">
+<p>The model also resets the state pointer so that the <code>undo</code> and <code>redo</code> functions will point to a fresh, new state.</p>
+</div>
+<div class="paragraph">
+<p>Lastly, the <code>EventsCenter</code> posts a new event so that the panels would update accordingly and display the relevant lists.</p>
+</div>
+<div class="paragraph">
+<p>The figure below is the sequence diagram to show how the <code>switch</code> command works when switching from volunteer to event context.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command_switch_sd.png" alt="switch SD" width="800">
+</div>
+<div class="title">Figure 13. Simplified sequence diagram of switch command</div>
 </div>
 </div>
 <div class="sect4">
@@ -1580,30 +1600,21 @@ This behaviour is illustrated in the code snippet of the <code>Event</code> clas
 <div class="ulist">
 <ul>
 <li>
-<p>Clear all predicates for volunteer list.</p>
+<p>Clears all predicates for volunteer list.</p>
 </li>
 <li>
-<p>Filter the existing records by the selected event.</p>
+<p>Filters the existing records by the selected event.</p>
 </li>
 <li>
 <p>Resets the state pointer (for undo/redo functions).</p>
 </li>
 <li>
-<p>Raise a <code>RecordChangeEvent</code> to set the selected event.</p>
+<p>Raises <code>RecordChangeEvent</code> to set the selected event.</p>
 </li>
 <li>
-<p>Raise a <code>ContextChangeEvent</code> to update the UI.</p>
+<p>Raises <code>ContextChangeEvent</code> to update the UI.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>The figure below is the sequence diagram to show how the <code>switch</code> command works when switching from volunteer to event context.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/command_manage_sd.png" alt="manage SD" width="800">
-</div>
-<div class="title">Figure 15. Simplified sequence diagram for manage command</div>
 </div>
 <div class="paragraph">
 <p>The following code snippet shows what the <code>manage</code> command does upon execution:</p>
@@ -1643,6 +1654,32 @@ This behaviour is illustrated in the code snippet of the <code>Event</code> clas
     <span class="comment">//...</span>
 }</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>From the code snippet above, we see that the current state of event list from the model is stored into another list called 'filteredEventList'.
+Storing the events in another list is done so that the list can be easily referenced in later parts of the code.</p>
+</div>
+<div class="paragraph">
+<p>The volunteer list in the model is updated with the predicate so that it now contains the list of all volunteers in the system.</p>
+</div>
+<div class="paragraph">
+<p>A quick check is done to ensure that the user input is valid. Otherwise, an exception is thrown.</p>
+</div>
+<div class="paragraph">
+<p>If the user input is valid, the application changes to the record context. Then, the selected event by the user is stored in the model.
+In addition, the model resets the state pointer so that the <code>undo</code> and <code>redo</code> functions will point to a fresh, new state.</p>
+</div>
+<div class="paragraph">
+<p>Lastly, all the relevant UI is updated by posting events via the <code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p>The figure below is the sequence diagram to show how the <code>switch</code> command works when switching from volunteer to event context.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command_manage_sd.png" alt="manage SD" width="800">
+</div>
+<div class="title">Figure 15. Simplified sequence diagram for manage command</div>
 </div>
 </div>
 <div class="sect4">
@@ -3945,4 +3982,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:33:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:06:06 UTC</div></div></div></body></html>
