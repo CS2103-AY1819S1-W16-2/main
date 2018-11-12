@@ -40,6 +40,7 @@
 <li><a href="#export-volunteer-certificate">4.5. Export Volunteer Certificate</a></li>
 <li><a href="#auto-incremented-event-id">4.6. Auto-incremented event ID</a></li>
 <li><a href="#Implementation-Manage">4.7. Manage command</a></li>
+<li><a href="#Implementation-Overview">4.8. Overview command</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1436,7 +1437,7 @@ with a <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/
 <h3 id="auto-incremented-event-id"><a class="link" href="#auto-incremented-event-id">4.6. Auto-incremented event ID</a></h3>
 <div class="paragraph">
 <p>The auto-incremented event ID field is used by the <code>Record</code> class to identify unique events. An integer ID field is used because
-identifying unique events based on multiple String fields would be computationally inefficient.</p>
+the alternative method of identifying unique events based on multiple <code>Event</code> attribute fields would be computationally inefficient.</p>
 </div>
 <div class="sect4">
 <h5 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current implementation</a></h5>
@@ -1450,21 +1451,59 @@ keeps track of the highest ID in the system. Additionally, it implements two dif
 <p><code>Event(Name name, Location location, Date startDate, Date endDate,
 Time startTime, Time endTime, Description description, Set&lt;Tag&gt; tags)</code></p>
 <div class="paragraph">
-<p>This constructor is used when an event, initialised as a new <code>Event</code> object, does not yet exist in the system (e.g. adding a new event).</p>
+<p>This constructor is used when working with an event that does not yet exist in the system (e.g. adding a new event).</p>
 </div>
 <div class="paragraph">
-<p>It increments the current highest event ID in the system and assigns that value to the new event that is created.</p>
+<p>It increments the current highest event ID in the system and assigns that value to the new event that is created. This behaviour is illustrated in the code snippet of the <code>Event</code> class below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Java"><span class="comment">// Used to keep track of current highest event ID in the system</span>
+<span class="directive">private</span> <span class="directive">static</span> <span class="type">int</span> maxId = <span class="integer">0</span>;
+
+<span class="directive">public</span> <span class="predefined-type">Event</span>(<span class="predefined-type">Name</span> name, Location location, <span class="predefined-type">Date</span> startDate, <span class="predefined-type">Date</span> endDate, <span class="predefined-type">Time</span> startTime, <span class="predefined-type">Time</span> endTime, Description description, <span class="predefined-type">Set</span>&lt;Tag&gt; tags) {
+        ...
+        incrementMaxId();
+        <span class="local-variable">this</span>.eventId = <span class="keyword">new</span> EventId(maxId);
+        ...
+}
+
+<span class="comment">// Increments the current highest event ID by 1</span>
+<span class="directive">private</span> <span class="type">void</span> incrementMaxId() {
+    maxId += <span class="integer">1</span>;
+}</code></pre>
+</div>
 </div>
 </li>
 <li>
 <p><code>Event(EventId eventId, Name name, Location location, Date startDate, Date endDate,
 Time startTime, Time endTime, Description description, Set&lt;Tag&gt; tags)</code></p>
 <div class="paragraph">
-<p>This constructor is used when an event, initialised as a new <code>Event</code> object, already exists in the system (e.g. loading data from XML file or editing an existing event).</p>
+<p>This constructor is used when working with an event that already exists in the system (e.g. loading data from XML file or editing an existing event).</p>
 </div>
 <div class="paragraph">
-<p>It checks whether the ID of the event being initialised is greater than the current highest ID in the system. If it is, replace the value of
-the highest ID with the event ID and creates the event. If it isn&#8217;t, skip to the creation of the event.</p>
+<p>It checks whether the ID of the event being initialised is greater than the current highest ID in the system.
+If this condition is true, the current highest event ID value will be replaced by the ID of the event being initialised.
+This behaviour is illustrated in the code snippet of the <code>Event</code> class below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Java"><span class="comment">// Used to keep track of current highest event ID in the system</span>
+<span class="directive">private</span> <span class="directive">static</span> <span class="type">int</span> maxId = <span class="integer">0</span>;
+
+<span class="directive">public</span> <span class="predefined-type">Event</span>(<span class="predefined-type">Name</span> name, Location location, <span class="predefined-type">Date</span> startDate, <span class="predefined-type">Date</span> endDate, <span class="predefined-type">Time</span> startTime, <span class="predefined-type">Time</span> endTime, Description description, <span class="predefined-type">Set</span>&lt;Tag&gt; tags) {
+        ...
+        if (isEventIdGreaterThanMaxId(eventId.id)) {
+            replaceMaxIdWithEventId(eventId.id);
+        }
+        ...
+}
+
+<span class="comment">// Replaces current highest event ID with the ID of the event being initialised</span>
+<span class="directive">private</span> <span class="type">void</span> replaceMaxIdWithEventId(<span class="type">int</span> eventId) {
+    maxId = eventId;
+}</code></pre>
+</div>
 </div>
 </li>
 </ul>
@@ -1655,6 +1694,128 @@ the highest ID with the event ID and creates the event. If it isn&#8217;t, skip 
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="Implementation-Overview"><a class="link" href="#Implementation-Overview">4.8. Overview command</a></h3>
+<div class="paragraph">
+<p>The <code>overview</code> command is used in the 'event' or 'volunteer' context to show statistics for the number of types of events and volunteer distribution.</p>
+</div>
+<div class="sect4">
+<h5 id="current-implementation-5"><a class="link" href="#current-implementation-5">Current implementation</a></h5>
+<div class="paragraph">
+<p>The <code>overview</code> command raises a <code>OverviewPanelChangedEvent</code> to start calculating statistical data and to
+update the UI.</p>
+</div>
+<div class="paragraph">
+<p>Because of the volatile nature of the data (it can change when attributes of events or volunteers are changed), the data is not stored persistently in the <code>ModelManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>Instead, whenever the <code>OverviewPanel</code> UI class detects an <code>OverviewPanelChangedEvent</code>, it calls on the <code>Overview</code> to provide it with updated statistics.</p>
+</div>
+<div class="paragraph">
+<p>The figure below is the sequence diagram to show how the <code>overview</code> command works when running from the 'event' context.
+Note that the <code>OverviewPanel</code> calls the calculateNumOfEvents and calculateVolunteerDemographics methods in <code>Overview</code> class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command_overview_sd.png" alt="overview SD" width="800">
+</div>
+<div class="title">Figure 16. Simplified sequence diagram for <code>overview</code> command</div>
+</div>
+<div class="paragraph">
+<p>In the calculateNumOfEvents method, events are categorised into 3 events types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Upcoming (events that have yet to happen).</p>
+</li>
+<li>
+<p>Ongoing (events that are currently happening).</p>
+</li>
+<li>
+<p>Completed (events that have already happened).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The categorisation process can be found in the <code>DateTimeUtil</code> class in the getEventStatus method.
+The start to end period of each event is compared with the current date and time to determine its category.
+This behaviour is illustrated in the code snippet below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Java"><span class="directive">public</span> <span class="directive">static</span> <span class="type">int</span> getEventStatus(<span class="predefined-type">Date</span> startDate, <span class="predefined-type">Time</span> startTime, <span class="predefined-type">Date</span> endDate, <span class="predefined-type">Time</span> endTime) {
+    ...
+    <span class="comment">//build start from startDate and startTime</span>
+    java.util.Date start = inf.parse(startDate + <span class="string"><span class="delimiter">&quot;</span><span class="content"> </span><span class="delimiter">&quot;</span></span> + startTime);
+
+    <span class="comment">//build end from endDate and endTime</span>
+    java.util.Date end = inf.parse(endDate + <span class="string"><span class="delimiter">&quot;</span><span class="content"> </span><span class="delimiter">&quot;</span></span> + endTime);
+
+    <span class="keyword">if</span> (now.compareTo(start) &lt; <span class="integer">0</span>) {
+        <span class="keyword">return</span> UPCOMING_EVENT;
+    } <span class="keyword">else</span> <span class="keyword">if</span> (now.compareTo(start) &gt;= <span class="integer">0</span> &amp;&amp; now.compareTo(end) &lt;= <span class="integer">0</span>) {
+        <span class="keyword">return</span> ONGOING_EVENT;
+    } <span class="keyword">else</span> {
+        <span class="keyword">return</span> COMPLETED_EVENT;
+    }
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the calculateVolunteerDemographics method, the ages of volunteers are derived from their birthdates instead of being stored in the system.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-6"><a class="link" href="#design-considerations-6">Design considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-how-statistics-are-aggregated"><a class="link" href="#aspect-how-statistics-are-aggregated">Aspect: How statistics are aggregated</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Calculate statistics from scratch using existing volunteers and events</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No need to store and maintain volatile statistical data.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires heavier processing every time statistics are aggregated.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store and maintain statistics after each operation</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No need for heavy computation as a result of building statistics from scratch.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have to propagate changes to statistical data after changes to volunteers and events.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1716,7 +1877,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 16. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 17. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -3784,4 +3945,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:14:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:33:26 UTC</div></div></div></body></html>

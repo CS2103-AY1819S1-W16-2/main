@@ -343,7 +343,7 @@ The expected result is shown in the figure below.</p>
 <h3 id="auto-incremented-event-id"><a class="link" href="#auto-incremented-event-id">4.1. Auto-incremented event ID</a></h3>
 <div class="paragraph">
 <p>The auto-incremented event ID field is used by the <code>Record</code> class to identify unique events. An integer ID field is used because
-identifying unique events based on multiple String fields would be computationally inefficient.</p>
+the alternative method of identifying unique events based on multiple <code>Event</code> attribute fields would be computationally inefficient.</p>
 </div>
 <div class="sect4">
 <h5 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h5>
@@ -357,21 +357,59 @@ keeps track of the highest ID in the system. Additionally, it implements two dif
 <p><code>Event(Name name, Location location, Date startDate, Date endDate,
 Time startTime, Time endTime, Description description, Set&lt;Tag&gt; tags)</code></p>
 <div class="paragraph">
-<p>This constructor is used when an event, initialised as a new <code>Event</code> object, does not yet exist in the system (e.g. adding a new event).</p>
+<p>This constructor is used when working with an event that does not yet exist in the system (e.g. adding a new event).</p>
 </div>
 <div class="paragraph">
-<p>It increments the current highest event ID in the system and assigns that value to the new event that is created.</p>
+<p>It increments the current highest event ID in the system and assigns that value to the new event that is created. This behaviour is illustrated in the code snippet of the <code>Event</code> class below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Java"><span class="comment">// Used to keep track of current highest event ID in the system</span>
+<span class="directive">private</span> <span class="directive">static</span> <span class="type">int</span> maxId = <span class="integer">0</span>;
+
+<span class="directive">public</span> <span class="predefined-type">Event</span>(<span class="predefined-type">Name</span> name, Location location, <span class="predefined-type">Date</span> startDate, <span class="predefined-type">Date</span> endDate, <span class="predefined-type">Time</span> startTime, <span class="predefined-type">Time</span> endTime, Description description, <span class="predefined-type">Set</span>&lt;Tag&gt; tags) {
+        ...
+        incrementMaxId();
+        <span class="local-variable">this</span>.eventId = <span class="keyword">new</span> EventId(maxId);
+        ...
+}
+
+<span class="comment">// Increments the current highest event ID by 1</span>
+<span class="directive">private</span> <span class="type">void</span> incrementMaxId() {
+    maxId += <span class="integer">1</span>;
+}</code></pre>
+</div>
 </div>
 </li>
 <li>
 <p><code>Event(EventId eventId, Name name, Location location, Date startDate, Date endDate,
 Time startTime, Time endTime, Description description, Set&lt;Tag&gt; tags)</code></p>
 <div class="paragraph">
-<p>This constructor is used when an event, initialised as a new <code>Event</code> object, already exists in the system (e.g. loading data from XML file or editing an existing event).</p>
+<p>This constructor is used when working with an event that already exists in the system (e.g. loading data from XML file or editing an existing event).</p>
 </div>
 <div class="paragraph">
-<p>It checks whether the ID of the event being initialised is greater than the current highest ID in the system. If it is, replace the value of
-the highest ID with the event ID and creates the event. If it isn&#8217;t, skip to the creation of the event.</p>
+<p>It checks whether the ID of the event being initialised is greater than the current highest ID in the system.
+If this condition is true, the current highest event ID value will be replaced by the ID of the event being initialised.
+This behaviour is illustrated in the code snippet of the <code>Event</code> class below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="Java"><span class="comment">// Used to keep track of current highest event ID in the system</span>
+<span class="directive">private</span> <span class="directive">static</span> <span class="type">int</span> maxId = <span class="integer">0</span>;
+
+<span class="directive">public</span> <span class="predefined-type">Event</span>(<span class="predefined-type">Name</span> name, Location location, <span class="predefined-type">Date</span> startDate, <span class="predefined-type">Date</span> endDate, <span class="predefined-type">Time</span> startTime, <span class="predefined-type">Time</span> endTime, Description description, <span class="predefined-type">Set</span>&lt;Tag&gt; tags) {
+        ...
+        if (isEventIdGreaterThanMaxId(eventId.id)) {
+            replaceMaxIdWithEventId(eventId.id);
+        }
+        ...
+}
+
+<span class="comment">// Replaces current highest event ID with the ID of the event being initialised</span>
+<span class="directive">private</span> <span class="type">void</span> replaceMaxIdWithEventId(<span class="type">int</span> eventId) {
+    maxId = eventId;
+}</code></pre>
+</div>
 </div>
 </li>
 </ul>
@@ -436,4 +474,4 @@ the highest ID with the event ID and creates the event. If it isn&#8217;t, skip 
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:14:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:33:27 UTC</div></div></div></body></html>
