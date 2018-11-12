@@ -86,7 +86,6 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and shutdown</a></li>
 <li><a href="#deleting-a-volunteer">G.2. Deleting a volunteer</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -1299,7 +1298,10 @@ This is only possible when in the 'volunteer' context. The information included 
 <p>Volunteer ID</p>
 </li>
 <li>
-<p>List of events involved in - Event name, hours contributed, event start and event end dates</p>
+<p>List of events involved in - Event name, event ID, hours contributed, event start and event end dates</p>
+</li>
+<li>
+<p>Total hours contributed across all events</p>
 </li>
 </ul>
 </div>
@@ -1309,24 +1311,33 @@ This is only possible when in the 'volunteer' context. The information included 
 <div class="ulist">
 <ul>
 <li>
-<p>Folder named 'Certs' in the user&#8217;s current working directory (next to jar file)</p>
+<p>Folder named 'Certs' in the user&#8217;s current working directory</p>
 </li>
 <li>
-<p>Direct to Desktop (if permission not allowed for the above)</p>
+<p>Direct to the user&#8217;s current working directory (next to the .jar file)</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>This is what the exported PDF certificate currently looks like:</p>
+<p>This is what the exported PDF certificate will look like:</p>
 </div>
 <div class="imageblock thumb">
 <div class="content">
-<img src="images/CurrentVolunteerCert.png" alt="CurrentVolunteerCert" width="600">
+<img src="images/CurrentVolunteerCert.png" alt="CurrentVolunteerCert" width="500">
 </div>
-<div class="title">Figure 14. Current form of exported volunteer certificate</div>
+<div class="title">Figure 14. Sample exported volunteer certificate</div>
 </div>
 <div class="sect4">
 <h5 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h5>
+<div class="paragraph">
+<p>The following activity diagram shows us the control flow of the <code>exportcert</code> feature. Analysing this diagram would be a good way to understand the intended functionality of this feature.</p>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="images/command_exportcert_ad.png" alt="command exportcert ad" width="500">
+</div>
+<div class="title">Figure 15. <code>exportcert</code> command activity diagram</div>
+</div>
 <div class="paragraph">
 <p>The following steps were involved in this feature&#8217;s implementation:</p>
 </div>
@@ -1391,7 +1402,7 @@ This is only possible when in the 'volunteer' context. The information included 
 </div>
 </li>
 <li>
-<p>Use Apache PDFBox to create and export a volunteer certificate with the information retrieved.</p>
+<p>Use of Apache PDFBox to create and export a volunteer certificate with the information retrieved.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1399,12 +1410,30 @@ This is only possible when in the 'volunteer' context. The information included 
 with a <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/pdmodel/PDPage.html">PDPage</a> to write the content to.</p>
 </li>
 <li>
-<p>A <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/pdmodel/PDPageContentStream.html">PDPageContentStream</a> is then used to write the information to a page content stream.</p>
+<p>Writing of the information to a page content stream is then achieved using <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/pdmodel/PDPageContentStream.html">PDPageContentStream</a>.</p>
 </li>
 </ul>
 </div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>The following sequence diagrams show how the <code>exportcert</code> operation will be executed for a valid command <code>exportcert 1</code>. Analyse these diagrams to achieve a more detailed understanding of the internal interactions involved in the execution of this feature.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command_exportcert_sd_1.png" alt="exportcert SD" width="800">
+</div>
+<div class="title">Figure 16. Sequence diagram for <code>exportcert 1</code> with simplified ExportCertCommand execution</div>
+</div>
+<div class="paragraph">
+<p>The next sequence diagram below looks at the ExportCertCommand&#8217;s execution in detail, including it&#8217;s interaction with the model.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command_exportcert_sd_2.png" alt="exportcert SD" width="650">
+</div>
+<div class="title">Figure 17. Detailed sequence diagram for ExportCertCommand execution</div>
 </div>
 </div>
 <div class="sect4">
@@ -1519,6 +1548,115 @@ with a <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/
 </div>
 </div>
 <div class="sect5">
+<h6 id="aspect-choice-of-export-location"><a class="link" href="#aspect-choice-of-export-location">Aspect: Choice of export location</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Export to the user&#8217;s current working directory</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Putting the files relative to where the app is allows the user to locate, manage and access the exports easily as this is a portable app. The app jar and the exported files can be shifted to different locations together easily as well.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Navigating to this directory would be necessary if he/she wishes to access the files independent of using the application.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Export to the user&#8217;s Desktop</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to access files when not using the application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As it is a portable app, it may be cumbersome to keep navigating to the Desktop to access the exports when using the application. It also becomes harder to move the app jar and exports together from place to place.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Allow the user to specify the export filepath as an argument</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows for greater customisability, thus catering to each user&#8217;s unique needs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires user to have accurate prior knowledge of the machine&#8217;s filepath format. Moreover, support for all possible OS filepath formats within the application may not be possible as well (e.g. custom OS filepath).</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="aspect-organisation-of-pdf-generation-code"><a class="link" href="#aspect-organisation-of-pdf-generation-code">Aspect: Organisation of PDF generation code</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Encapsulate within a <code>CertGenerator</code> class with exposed public method(s)</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows for separation of concerns as handling command result or exceptions &amp; retrieving volunteer data is separated from the creation, population and export of the certificate. Also allows for future extension of the PDF generation feature (e.g. generating event reports) through adding a <code>ExportPdf</code> abstract class or interface with <code>generatePdf</code>, <code>populatePdf</code> and <code>exportPdf</code> methods to be implemented.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Introduces inherent coupling between <code>ExportCertCommand</code> and <code>CertGenerator</code> classes as currently, only <code>ExportCertCommand</code> includes the certificate generation functionality.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Leave PDF generation code inside a method within the <code>ExportCertCommand</code> class</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the certificate generation code to reside exactly where it is used, as the certificate generation functionality is currently only used by <code>ExportCertCommand</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Causes a low level of cohesion by packaging different functionalities within <code>ExportCertCommand</code>. The functionality to export PDFs also remains unabstracted, and thus extending the functionality to create e.g. event report PDFs would require repetition of the PDF generation code.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
 <h6 id="aspect-choice-of-additional-details-for-identifying-volunteer-from-certificate"><a class="link" href="#aspect-choice-of-additional-details-for-identifying-volunteer-from-certificate">Aspect: Choice of additional details for identifying volunteer from certificate</a></h6>
 <div class="ulist">
 <ul>
@@ -1532,11 +1670,11 @@ with a <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Is unique to each volunteer and can be recovered easily, given the volunteer&#8217;s name or other personal information. It also adds credibility to the exported volunteer certificate.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds credibility to the certificate by displaying something that is unique to each volunteer, and can be recovered easily given the volunteer&#8217;s name or other personal information.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Requires more space as each NRIC can be represented as string of length 9 or a 7-digit integer.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires more space as each NRIC has to be represented as string of length 9 or a 7-digit integer.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1551,56 +1689,11 @@ with a <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Shorter than NRIC and still serves the purpose, and can be auto-incremented.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Achieves the intended purpose (additional volunteer identification), while encompassing the ability to be auto-incremented.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hard to recover, even if additional information about the volunteer is provided. Would also be meaningless to a third person to whom the certificate is presented for verification purposes.</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect5">
-<h6 id="aspect-choice-of-export-location"><a class="link" href="#aspect-choice-of-export-location">Aspect: Choice of export location</a></h6>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Create a folder in the user&#8217;s current working directory</p>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Putting the files relative to where the app is allows the user to locate, manage and access the exports easily as this is a portable app. The app jar and the exported files can be shifted to different locations together easily as well.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The user would have to navigate to this directory if he/she wishes to access the files independent of using the application.</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p><strong>Alternative 2 (also part of current choice, if no permission for 1):</strong> Export to the user&#8217;s Desktop</p>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to access files when not using the application.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">As it is a portable app, it may be cumbersome to keep navigating to the Desktop to access the exports when using the application. It also becomes harder to move the app jar and exports together from place to place.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hard to recover, even if additional information about the volunteer is provided. It would also be meaningless to a third person to whom the certificate is presented for verification purposes.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1828,7 +1921,7 @@ In addition, the model resets the state pointer so that the <code>undo</code> an
 <div class="content">
 <img src="images/command_manage_sd.png" alt="manage SD" width="800">
 </div>
-<div class="title">Figure 15. Simplified sequence diagram for manage command</div>
+<div class="title">Figure 18. Simplified sequence diagram for manage command</div>
 </div>
 </div>
 <div class="sect4">
@@ -1905,7 +1998,7 @@ Note that the <code>OverviewPanel</code> calls the calculateNumOfEvents and calc
 <div class="content">
 <img src="images/command_overview_sd.png" alt="overview SD" width="800">
 </div>
-<div class="title">Figure 16. Simplified sequence diagram for <code>overview</code> command</div>
+<div class="title">Figure 19. Simplified sequence diagram for <code>overview</code> command</div>
 </div>
 <div class="paragraph">
 <p>In the calculateNumOfEvents method, events are categorised into 3 events types:</p>
@@ -2057,7 +2150,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 17. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 20. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -4068,9 +4161,6 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="deleting-a-volunteer"><a class="link" href="#deleting-a-volunteer">G.2. Deleting a volunteer</a></h3>
@@ -4100,29 +4190,6 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Dealing with missing/corrupted data files</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:42:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:49:14 UTC</div></div></div></body></html>

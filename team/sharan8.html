@@ -10,13 +10,13 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This project portfolio page serves to document my contributions to <em>SocialCare</em>, a software engineering project that was
+<p>This project portfolio page serves to document my contributions to <em>SocialCare</em>, a <strong>software engineering project</strong> that was
 undertaken as part of the National University of Singapore (NUS) School of Computing&#8217;s beginner Software Engineering
 module, CS2103T. More information on this module can be found
 <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-website/admin/index.html">here</a>.</p>
 </div>
 <div class="paragraph">
-<p><em>SocialCare</em> is an <strong>event and volunteer management system</strong> for social welfare organisations, which runs on desktops.
+<p><em>SocialCare</em> is an <strong>event and volunteer management system</strong> for administrators of social welfare organisations, which runs on desktops.
 The user interacts with it using the Command Line Interface (CLI), and it has a Graphical User Interface (GUI)
 created using <a href="https://docs.oracle.com/javafx/2/overview/jfxpub-overview.htm">JavaFX</a>. The application is written in Java,
 and has about 10,000 lines of code.</p>
@@ -50,6 +50,9 @@ mouse/GUI driven application.</p>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section summarizes my contributions to this project and to my fellow course mates throughout the course of the module. It includes enhancements made and a link to the code that I contributed as well.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -61,13 +64,12 @@ mouse/GUI driven application.</p>
 of a PDF certificate.</p>
 </li>
 <li>
-<p><em>Justification</em>: This feature improves the product significantly as it automates a task that is currently done
-largely manually, and offers the user a way to access information from outside of the application as well (via portable
+<p><em>Justification</em>: This feature improves the product significantly as it automates a task that is currently done manually by referencing files of volunteer records and painstakingly entering information into a word document. It also offers the user a way to access information from outside of the application as well (via portable
 and printable PDF files).</p>
 </li>
 <li>
 <p><em>Highlights</em>: This enhancement involved an in-depth analysis of available external open source libraries, and
-meticulous design of the exported PDF document.</p>
+meticulous design of the PDF document to be exported.</p>
 </li>
 <li>
 <p><em>Credits</em>: This feature was developed with the use of <a href="https://pdfbox.apache.org/team.html">Apache PDFBox</a>, which
@@ -114,10 +116,7 @@ to my code on the Project Code Dashboard.</p>
 <p>Shared a personal learning point with forum members: <a href="https://github.com/nus-cs2103-AY1819S1/forum/issues/143">#143</a></p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other teams: To be updated.</p>
-</li>
-<li>
-<p>Some parts of the <code>exportcert</code> feature I added inspired the implementation of the import/export csv/xml feature.</p>
+<p>Provided inspiration for the implementation of the import/export csv/xml feature, specifically through my handling of file export to main and backup filepaths in the <code>exportcert</code> feature I added.</p>
 </li>
 </ul>
 </div>
@@ -144,7 +143,10 @@ to brainstorm on product morphing ideas using the 'Target User Profile-Problem-V
 </li>
 <li>
 <p>Conceptualised and validated the idea for <em>SocialCare</em> through conversing with staff from 2
-social welfare organisations that I have worked with in the past.</p>
+social welfare organisations that I have worked with in the past, who are part of our intended target group.</p>
+</li>
+<li>
+<p>Contacted a software engineer from the industry to find out how Extreme Programming is actually employed, and shared the takeaways with my group and classmates.</p>
 </li>
 </ul>
 </div>
@@ -165,7 +167,7 @@ social welfare organisations that I have worked with in the past.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below is the section I contributed to the User Guide pertaining to the feature that I implemented, <code>exportcert</code>. It showcases my ability to write and design documentation targeting
 end-users.</em></p></td>
 </tr>
 </tbody>
@@ -190,7 +192,10 @@ end-users.</em></p></td>
 <p>Volunteer NRIC</p>
 </li>
 <li>
-<p>List of events involved in - Event name, hours contributed, event start date and event end date</p>
+<p>List of events involved in - Event name, event ID, hours contributed, event start date and event end date</p>
+</li>
+<li>
+<p>Total hours contributed across all events</p>
 </li>
 </ul>
 </div>
@@ -254,11 +259,11 @@ A success message will also be displayed in the following form: 'Certificate exp
 </table>
 </div>
 <div class="paragraph">
-<p>Here is what the exported certificate will look like:</p>
+<p>Here is what the exported certificate will look like: (Note that the number within the square brackets [ ] following the event name corresponds to the event ID)</p>
 </div>
 <div class="imageblock thumb">
 <div class="content">
-<img src="../images/CurrentVolunteerCert.png" alt="CurrentVolunteerCert" width="600">
+<img src="../images/CurrentVolunteerCert.png" alt="CurrentVolunteerCert" width="450">
 </div>
 <div class="title">Figure 1. Sample exported volunteer certificate</div>
 </div>
@@ -291,60 +296,22 @@ A success message will also be displayed in the following form: 'Certificate exp
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical
-documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below is an excerpt from the section I contributed to the Developer Guide. It showcases my ability to write technical
+documentation which showcases the technical depth of my contributions to the project, along with my ability to critically analyse design considerations.</em></p></td>
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="export-volunteer-certificate"><a class="link" href="#export-volunteer-certificate">Export Volunteer Certificate</a></h3>
+<div class="sect4">
+<h5 id="implementation"><a class="link" href="#implementation">Implementation</a></h5>
 <div class="paragraph">
-<p>The <code>exportcert</code> command enables the volunteer manager to export a PDF document detailing a volunteer&#8217;s involvement with the organisation.
-This is only possible when in the 'volunteer' context. The information included in the certificate are as follows:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Title: 'Certificate of Recognition'</p>
-</li>
-<li>
-<p>Date of export</p>
-</li>
-<li>
-<p>Volunteer name</p>
-</li>
-<li>
-<p>Volunteer ID</p>
-</li>
-<li>
-<p>List of events involved in - Event name, hours contributed, event start and event end dates</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Currently, the certificate will be exported to either of these two locations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Folder named 'Certs' in the user&#8217;s current working directory (next to jar file)</p>
-</li>
-<li>
-<p>Direct to Desktop (if permission not allowed for the above)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This is what the exported PDF certificate currently looks like:</p>
+<p>The following activity diagram shows us the control flow of the <code>exportcert</code> feature. Analysing this diagram would be a good way to understand the intended functionality of this feature.</p>
 </div>
 <div class="imageblock thumb">
 <div class="content">
-<img src="../images/CurrentVolunteerCert.png" alt="CurrentVolunteerCert" width="600">
+<img src="../images/command_exportcert_ad.png" alt="command exportcert ad" width="500">
 </div>
-<div class="title">Figure 2. Current form of exported volunteer certificate</div>
+<div class="title">Figure 2. <code>exportcert</code> command activity diagram</div>
 </div>
-<div class="sect4">
-<h5 id="implementation"><a class="link" href="#implementation">Implementation</a></h5>
 <div class="paragraph">
 <p>The following steps were involved in this feature&#8217;s implementation:</p>
 </div>
@@ -409,7 +376,7 @@ This is only possible when in the 'volunteer' context. The information included 
 </div>
 </li>
 <li>
-<p>Use Apache PDFBox to create and export a volunteer certificate with the information retrieved.</p>
+<p>Use of Apache PDFBox to create and export a volunteer certificate with the information retrieved.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -417,12 +384,30 @@ This is only possible when in the 'volunteer' context. The information included 
 with a <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/pdmodel/PDPage.html">PDPage</a> to write the content to.</p>
 </li>
 <li>
-<p>A <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/pdmodel/PDPageContentStream.html">PDPageContentStream</a> is then used to write the information to a page content stream.</p>
+<p>Writing of the information to a page content stream is then achieved using <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/pdmodel/PDPageContentStream.html">PDPageContentStream</a>.</p>
 </li>
 </ul>
 </div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>The following sequence diagrams show how the <code>exportcert</code> operation will be executed for a valid command <code>exportcert 1</code>. Analyse these diagrams to achieve a more detailed understanding of the internal interactions involved in the execution of this feature.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command_exportcert_sd_1.png" alt="exportcert SD" width="800">
+</div>
+<div class="title">Figure 3. Sequence diagram for <code>exportcert 1</code> with simplified ExportCertCommand execution</div>
+</div>
+<div class="paragraph">
+<p>The next sequence diagram below looks at the ExportCertCommand&#8217;s execution in detail, including it&#8217;s interaction with the model.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command_exportcert_sd_2.png" alt="exportcert SD" width="650">
+</div>
+<div class="title">Figure 4. Detailed sequence diagram for ExportCertCommand execution</div>
 </div>
 </div>
 <div class="sect4">
@@ -537,56 +522,11 @@ with a <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/
 </div>
 </div>
 <div class="sect5">
-<h6 id="aspect-choice-of-additional-details-for-identifying-volunteer-from-certificate"><a class="link" href="#aspect-choice-of-additional-details-for-identifying-volunteer-from-certificate">Aspect: Choice of additional details for identifying volunteer from certificate</a></h6>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use Volunteer&#8217;s NRIC</p>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Is unique to each volunteer and can be recovered easily, given the volunteer&#8217;s name or other personal information. It also adds credibility to the exported volunteer certificate.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Requires more space as each NRIC can be represented as string of length 9 or a 7-digit integer.</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use a Volunteer ID</p>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Shorter than NRIC and still serves the purpose, and can be auto-incremented.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hard to recover, even if additional information about the volunteer is provided. Would also be meaningless to a third person to whom the certificate is presented for verification purposes.</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect5">
 <h6 id="aspect-choice-of-export-location"><a class="link" href="#aspect-choice-of-export-location">Aspect: Choice of export location</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Create a folder in the user&#8217;s current working directory</p>
+<p><strong>Alternative 1 (current choice):</strong> Export to the user&#8217;s current working directory</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -599,13 +539,13 @@ with a <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The user would have to navigate to this directory if he/she wishes to access the files independent of using the application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Navigating to this directory would be necessary if he/she wishes to access the files independent of using the application.</p></td>
 </tr>
 </tbody>
 </table>
 </li>
 <li>
-<p><strong>Alternative 2 (also part of current choice, if no permission for 1):</strong> Export to the user&#8217;s Desktop</p>
+<p><strong>Alternative 2:</strong> Export to the user&#8217;s Desktop</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -623,10 +563,73 @@ with a <a href="https://pdfbox.apache.org/docs/2.0.2/javadocs/org/apache/pdfbox/
 </tbody>
 </table>
 </li>
+<li>
+<p><strong>Alternative 3:</strong> Allow the user to specify the export filepath as an argument</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows for greater customisability, thus catering to each user&#8217;s unique needs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires user to have accurate prior knowledge of the machine&#8217;s filepath format. Moreover, support for all possible OS filepath formats within the application may not be possible as well (e.g. custom OS filepath).</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="aspect-organisation-of-pdf-generation-code"><a class="link" href="#aspect-organisation-of-pdf-generation-code">Aspect: Organisation of PDF generation code</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Encapsulate within a <code>CertGenerator</code> class with exposed public method(s)</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows for separation of concerns as handling command result or exceptions &amp; retrieving volunteer data is separated from the creation, population and export of the certificate. Also allows for future extension of the PDF generation feature (e.g. generating event reports) through adding a <code>ExportPdf</code> abstract class or interface with <code>generatePdf</code>, <code>populatePdf</code> and <code>exportPdf</code> methods to be implemented.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Introduces inherent coupling between <code>ExportCertCommand</code> and <code>CertGenerator</code> classes as currently, only <code>ExportCertCommand</code> includes the certificate generation functionality.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Leave PDF generation code inside a method within the <code>ExportCertCommand</code> class</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the certificate generation code to reside exactly where it is used, as the certificate generation functionality is currently only used by <code>ExportCertCommand</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cons</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Causes a low level of cohesion by packaging different functionalities within <code>ExportCertCommand</code>. The functionality to export PDFs also remains unabstracted, and thus extending the functionality to create e.g. event report PDFs would require repetition of the PDF generation code.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:42:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:49:14 UTC</div></div></div></body></html>
