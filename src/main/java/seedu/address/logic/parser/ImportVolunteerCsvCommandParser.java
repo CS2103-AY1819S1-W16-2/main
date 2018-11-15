@@ -3,8 +3,10 @@ package seedu.address.logic.parser;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import seedu.address.logic.commands.ImportVolunteerCsvCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -25,9 +27,14 @@ public class ImportVolunteerCsvCommandParser implements Parser<ImportVolunteerCs
         requireNonNull(userInput);
 
         try {
-            FileReader csvFile = new FileReader(userInput);
-            return new ImportVolunteerCsvCommand(csvFile);
-        } catch (FileNotFoundException e) {
+            String wew = new File("wew.csv").getAbsolutePath();
+            System.out.println(wew);
+            Path path = Paths.get("C:/Users/ice_d/Documents/wew.csv");
+            BufferedReader br = Files.newBufferedReader(path);
+
+            return new ImportVolunteerCsvCommand(br);
+        } catch (IOException e) {
+            e.printStackTrace();
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     ImportVolunteerCsvCommand.FILE_ERROR));
         }

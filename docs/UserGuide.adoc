@@ -432,6 +432,36 @@ You can refer to the following flowchart to better understand the feedback messa
 image::command_exportcert_ad.png[width="500"]
 // end::exportcert[]
 
+// tag::exportvolunteercsv[]
+[[command-volunteer-exportvolunteercsv]]
+==== Exporting volunteer information : `exportvolunteercsv`
+
+Exports a CSV file to the user's current working directory detailing a volunteer's involvement with the organisation.
+The CSV file will hold the following properties:
+ *Name*, *Gender*, *Birthday*, *Phone*, *Email*, *Address*, *VolunteerID*
+
+Format: `exportvolunteercsv'
+
+* Exports a CSV file of all the volunteers available in the database
+
+[NOTE]
+====
+An empty database will just export a csv file with the titles and empty entries
+====
+
+Example:
+
+* `exportvolunteercsv` +
+A csv file is generated inside a folder named VolunteerCSV next to the .jar where this program was run from. +
+The file is named Xvolunteer.csv where X is the number of volunteers information the command has successfully exported.
+
+[NOTE]
+====
+If SocialCare is unable to create a folder for you, the csv file will be exported by default to your desktop
+====
+
+// end::exportvolunteercsv[]
+
 // tag::eventmanagement[]
 === Event Management
 
@@ -683,7 +713,35 @@ image::command_record_edit.png[delete command, 600]
 .Output of `delete 1`
 image::command_record_delete.png[delete command, 600]
 
+// tag::exporteventcsv[]
+[[command-record-exporteventcsv]]
+==== Export list of volunteers for event: `exporteventcsv'
 
+Exports the list of volunteers participating in the event you are currently managing +
+Refer to <<command-record-manage>> on how to manage events.
+The list includes *Name*, *Phone*, *Remark*, *Hour*, *VolunteerID*.
+
+Format: `exporteventcsv`
+
+* Exports a list of the volunteers that are participating under the event
+
+[NOTE]
+====
+An empty database will just export a csv file with the titles and empty entries
+====
+
+Example:
+
+* `exporteventcsv' +
+
+A csv file is generated inside a folder named EventCSV next to the .jar where this program was run from. +
+The file is named Xvolunteer.csv where X is the number of volunteers information the command has successfully exported.
+
+[NOTE]
+====
+If SocialCare is unable to create a folder for you, the csv file will be exported by default to your desktop
+====
+// end::exporteventcsv[]
 
 === Miscellaneous
 

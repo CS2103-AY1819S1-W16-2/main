@@ -58,18 +58,17 @@ public class ImportVolunteerCsvCommand extends Command {
             + "Please check format and try again";
 
 
-    private final FileReader csvFile;
+    private final BufferedReader br;
 
     /**
-     * @param file to be read as a csv data
+     * @param br points to the bufferedreader of the file
      */
-    public ImportVolunteerCsvCommand(FileReader file) {
-        csvFile = file;
+    public ImportVolunteerCsvCommand(BufferedReader br) {
+        this.br = br;
     }
 
     @Override
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
-        BufferedReader br = new BufferedReader(csvFile);
         try {
             // this is the first line and it should be the title row
             br.readLine();

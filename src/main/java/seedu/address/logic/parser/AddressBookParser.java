@@ -6,36 +6,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.AddEventCommand;
-import seedu.address.logic.commands.AddRecordCommand;
-import seedu.address.logic.commands.ClearCommand;
-import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.DeleteCommand;
-import seedu.address.logic.commands.DeleteEventCommand;
-import seedu.address.logic.commands.DeleteRecordCommand;
-import seedu.address.logic.commands.EditCommand;
-import seedu.address.logic.commands.EditEventCommand;
-import seedu.address.logic.commands.EditRecordCommand;
-import seedu.address.logic.commands.ExitCommand;
-import seedu.address.logic.commands.ExportCertCommand;
-import seedu.address.logic.commands.ExportEventXmlCommand;
-import seedu.address.logic.commands.ExportVolunteerCsvCommand;
-import seedu.address.logic.commands.ExportVolunteerXmlCommand;
-import seedu.address.logic.commands.FindCommand;
-import seedu.address.logic.commands.FindEventCommand;
-import seedu.address.logic.commands.HelpCommand;
-import seedu.address.logic.commands.HistoryCommand;
-import seedu.address.logic.commands.ImportVolunteerCsvCommand;
-import seedu.address.logic.commands.ListCommand;
-import seedu.address.logic.commands.ListEventCommand;
-import seedu.address.logic.commands.ManageCommand;
-import seedu.address.logic.commands.OverviewCommand;
-import seedu.address.logic.commands.RedoCommand;
-import seedu.address.logic.commands.SelectCommand;
-import seedu.address.logic.commands.SelectEventCommand;
-import seedu.address.logic.commands.SwitchCommand;
-import seedu.address.logic.commands.UndoCommand;
+import seedu.address.logic.commands.*;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Context;
 
@@ -69,25 +40,25 @@ public class AddressBookParser {
 
         // Shared Commands
         switch (commandWord) {
-        case SwitchCommand.COMMAND_WORD:
-            return new SwitchCommandParser().parse(arguments);
-        case HistoryCommand.COMMAND_WORD:
-            return new HistoryCommand();
+            case SwitchCommand.COMMAND_WORD:
+                return new SwitchCommandParser().parse(arguments);
+            case HistoryCommand.COMMAND_WORD:
+                return new HistoryCommand();
 
-        case ExitCommand.COMMAND_WORD:
-            return new ExitCommand();
+            case ExitCommand.COMMAND_WORD:
+                return new ExitCommand();
 
-        case HelpCommand.COMMAND_WORD:
-            return new HelpCommand();
+            case HelpCommand.COMMAND_WORD:
+                return new HelpCommand();
 
-        case UndoCommand.COMMAND_WORD:
-            return new UndoCommand();
+            case UndoCommand.COMMAND_WORD:
+                return new UndoCommand();
 
-        case RedoCommand.COMMAND_WORD:
-            return new RedoCommand();
+            case RedoCommand.COMMAND_WORD:
+                return new RedoCommand();
 
-        default:
-            break;
+            default:
+                break;
         }
 
         // Executes commands for events
@@ -114,35 +85,36 @@ public class AddressBookParser {
     private Command parseEventCommand(String commandWord, String arguments) throws ParseException {
         // Replace all these commands
         switch (commandWord) {
-        case AddEventCommand.COMMAND_WORD:
-            return new AddEventCommandParser().parse(arguments);
+            case AddEventCommand.COMMAND_WORD:
+                return new AddEventCommandParser().parse(arguments);
 
-        case EditEventCommand.COMMAND_WORD:
-            return new EditEventCommandParser().parse(arguments);
+            case EditEventCommand.COMMAND_WORD:
+                return new EditEventCommandParser().parse(arguments);
 
-        case SelectEventCommand.COMMAND_WORD:
-            return new SelectEventCommandParser().parse(arguments);
+            case SelectEventCommand.COMMAND_WORD:
+                return new SelectEventCommandParser().parse(arguments);
 
-        case DeleteEventCommand.COMMAND_WORD:
-            return new DeleteEventCommandParser().parse(arguments);
+            case DeleteEventCommand.COMMAND_WORD:
+                return new DeleteEventCommandParser().parse(arguments);
 
-        case FindEventCommand.COMMAND_WORD:
-            return new FindEventCommandParser().parse(arguments);
+            case FindEventCommand.COMMAND_WORD:
+                return new FindEventCommandParser().parse(arguments);
 
-        case ListEventCommand.COMMAND_WORD:
-            return new ListEventCommand();
+            case ListEventCommand.COMMAND_WORD:
+                return new ListEventCommand();
 
-        case OverviewCommand.COMMAND_WORD:
-            return new OverviewCommand();
+            case OverviewCommand.COMMAND_WORD:
+                return new OverviewCommand();
 
-        case ManageCommand.COMMAND_WORD:
-            return new ManageCommandParser().parse(arguments);
+            case ManageCommand.COMMAND_WORD:
+                return new ManageCommandParser().parse(arguments);
 
-        case ExportEventXmlCommand.COMMAND_WORD:
-            return new ExportEventXmlCommandParser().parse(arguments);
+            case ExportEventXmlCommand.COMMAND_WORD:
+                return new ExportEventXmlCommandParser().parse(arguments);
 
-        default:
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+
+            default:
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
 
@@ -151,44 +123,44 @@ public class AddressBookParser {
      */
     private Command parseVolunteerCommand(String commandWord, String arguments) throws ParseException {
         switch (commandWord) {
-        case AddCommand.COMMAND_WORD:
-            return new AddCommandParser().parse(arguments);
+            case AddCommand.COMMAND_WORD:
+                return new AddCommandParser().parse(arguments);
 
-        case EditCommand.COMMAND_WORD:
-            return new EditCommandParser().parse(arguments);
+            case EditCommand.COMMAND_WORD:
+                return new EditCommandParser().parse(arguments);
 
-        case SelectCommand.COMMAND_WORD:
-            return new SelectCommandParser().parse(arguments);
+            case SelectCommand.COMMAND_WORD:
+                return new SelectCommandParser().parse(arguments);
 
-        case DeleteCommand.COMMAND_WORD:
-            return new DeleteCommandParser().parse(arguments);
+            case DeleteCommand.COMMAND_WORD:
+                return new DeleteCommandParser().parse(arguments);
 
-        case ClearCommand.COMMAND_WORD:
-            return new ClearCommand();
+            case ClearCommand.COMMAND_WORD:
+                return new ClearCommand();
 
-        case FindCommand.COMMAND_WORD:
-            return new FindCommandParser().parse(arguments);
+            case FindCommand.COMMAND_WORD:
+                return new FindCommandParser().parse(arguments);
 
-        case ListCommand.COMMAND_WORD:
-            return new ListCommand();
+            case ListCommand.COMMAND_WORD:
+                return new ListCommand();
 
-        case OverviewCommand.COMMAND_WORD:
-            return new OverviewCommand();
+            case OverviewCommand.COMMAND_WORD:
+                return new OverviewCommand();
 
-        case ExportCertCommand.COMMAND_WORD:
-            return new ExportCertCommandParser().parse(arguments);
+            case ExportCertCommand.COMMAND_WORD:
+                return new ExportCertCommandParser().parse(arguments);
 
-        case ExportVolunteerCsvCommand.COMMAND_WORD:
-            return new ExportVolunteerCsvCommandParser().parse(arguments);
+            case ExportVolunteerXmlCommand.COMMAND_WORD:
+                return new ExportVolunteerXmlCommandParser().parse(arguments);
 
-        case ExportVolunteerXmlCommand.COMMAND_WORD:
-            return new ExportVolunteerXmlCommandParser().parse(arguments);
+            case ExportVolunteerCsvCommand.COMMAND_WORD:
+                return new ExportVolunteerCsvCommand();
 
-        case ImportVolunteerCsvCommand.COMMAND_WORD:
-            return new ImportVolunteerCsvCommandParser().parse(arguments);
+            case ImportVolunteerCsvCommand.COMMAND_WORD:
+                return new ImportVolunteerCsvCommandParser().parse(arguments);
 
-        default:
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            default:
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
 
@@ -197,23 +169,26 @@ public class AddressBookParser {
      **/
     private Command parseRecordCommand(String commandWord, String arguments) throws ParseException {
         switch (commandWord) {
-        case FindCommand.COMMAND_WORD:
-            return new FindCommandParser().parse(arguments);
+            case FindCommand.COMMAND_WORD:
+                return new FindCommandParser().parse(arguments);
 
-        case ListCommand.COMMAND_WORD:
-            return new ListCommand();
+            case ListCommand.COMMAND_WORD:
+                return new ListCommand();
 
-        case AddRecordCommand.COMMAND_WORD:
-            return new AddRecordCommandParser().parse(arguments);
+            case AddRecordCommand.COMMAND_WORD:
+                return new AddRecordCommandParser().parse(arguments);
 
-        case EditRecordCommand.COMMAND_WORD:
-            return new EditRecordCommandParser().parse(arguments);
+            case EditRecordCommand.COMMAND_WORD:
+                return new EditRecordCommandParser().parse(arguments);
 
-        case DeleteRecordCommand.COMMAND_WORD:
-            return new DeleteRecordCommandParser().parse(arguments);
+            case DeleteRecordCommand.COMMAND_WORD:
+                return new DeleteRecordCommandParser().parse(arguments);
 
-        default:
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            case ExportEventCsvCommand.COMMAND_WORD:
+                return new ExportEventCsvCommand();
+
+            default:
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
 }
