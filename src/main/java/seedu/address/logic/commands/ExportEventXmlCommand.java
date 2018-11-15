@@ -43,8 +43,10 @@ public class ExportEventXmlCommand extends Command {
     private static final String TRANSFORMER_ERROR = "Transformer error.";
     private static final String PARSER_ERROR = "Parser error.";
 
-    private static final String DEFAULT_SAVE_PATH = System.getProperty("user.dir") + "/Event Xml/";
-    private static final String ALT_SAVE_PATH = System.getProperty("user.home") + "/Desktop/";
+    private static final String DEFAULT_SAVE_PATH = System.getProperty("user.dir")
+            + File.separator + "Event Xml" + File.separator;
+    private static final String ALT_SAVE_PATH = System.getProperty("user.home")
+            + File.separator + "Desktop" + File.separator;
     private static String SAVE_PATH = DEFAULT_SAVE_PATH;
 
     private static final java.util.logging.Logger logger = LogsCenter.getLogger(ExportEventXmlCommand.class);
